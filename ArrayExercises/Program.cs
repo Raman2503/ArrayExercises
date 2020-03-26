@@ -6,31 +6,20 @@ namespace ArrayExercises
 	{
 		static void Main(string[] args)
 		{
-			int rows = 0;
-			int columns = 0;
-
-			int[,] array = new int[rows, columns];
+			int rows = 2;
+			int columns = 2;
 
 
-			Console.WriteLine("Insert number of rows M");
+			//Console.WriteLine("Insert number of rows");
 
-			rows = Convert.ToInt32(Console.ReadLine());
+			//rows = Convert.ToInt32(Console.ReadLine());
 			
-			Console.WriteLine("Insert number of columns N");
+			//Console.WriteLine("Insert number of columns");
 
-			columns = Convert.ToInt32(Console.ReadLine());
-					   
-			Console.WriteLine("Insert numbers");
+			//columns = Convert.ToInt32(Console.ReadLine());
 
-			for (int i = 0; i < rows; i++)
-			{
-				for (int j = 0; j < columns; j++)
-				{
-					array[i, j] = int.Parse(Console.ReadLine());
-					Console.WriteLine(array[i,j]);
-					Console.ReadLine();
-				}
-			}
+			CreateArray array = new CreateArray();
+			array.Create2DArray(rows, columns);
 
 		}
 	}
