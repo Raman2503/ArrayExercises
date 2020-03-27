@@ -9,24 +9,22 @@ namespace ArrayExercises
 		public int [,] Create2DArray(int rows, int columns)
 		{
 			Random rand = new Random();
-			FillWithZeros zeros = new FillWithZeros();
 			Console.WriteLine("Random Array");
-			
+
+			int[,] matrix = new int[rows, columns];
+
+
 			for (int i = 0; i < rows; i++)
 			{
 				Console.WriteLine();
 
 				for (int j = 0; j < columns; j++)
 				{
-					int[,] matrix = new int[rows, columns];
-
 					matrix[i, j] = rand.Next();
-
-					Console.Write(matrix[i, j] + " ");
 				}
 			}
-			int[,] array = new int[rows, columns];
-			return array;
+
+			return matrix;
 		}
 	}
 }

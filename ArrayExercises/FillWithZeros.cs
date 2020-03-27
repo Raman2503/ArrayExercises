@@ -4,30 +4,41 @@ namespace ArrayExercises
 {
 	public class FillWithZeros
 	{
-		public void FillUpperRightWithZeros(int[,] matrix, int rows, int columns)
-		{
-			
-		}
-
-		public void FillUpperLeftWithZeros(int[,] matrix, int rows, int columns)
+		public int [,] FillUpperRightWithZeros(int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine();
 			Console.WriteLine();
 
-			Console.WriteLine("Upper Left");
+			Console.WriteLine("Upper Right");
 
+			int[,] newArray = new int[rows, columns];
+
+			// Creating copy of random matrix
+			for (int i = 0; i < rows; i++)
+			{
+				for (int j = 0; j < columns; j++)
+				{
+					newArray[i, j] = matrix[i, j];
+				}
+			}
+
+			// Filling array with zeros
 			for (int i = 0; i < rows; i++)
 			{
 				Console.WriteLine();
 
 				for (int j = i; j < columns; j++)
 				{
-					matrix[i, j] = 0;
-
-					Console.Write(matrix[i, j] +" ");
+					newArray[i, j] = 0;
 				}
 			}
-			Console.ReadLine();
+			return newArray;
+		}
+
+		public void FillUpperLeftWithZeros(int[,] matrix, int rows, int columns)
+		{
+			
+
 		}
 
 		public void FillLowerRightWithZeros(int[,] array)
@@ -36,9 +47,6 @@ namespace ArrayExercises
 		public int [,] FillLowerLeftWithZeros(int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine();
-			Console.WriteLine();
-
-			Console.WriteLine("Lower Left");
 
 			for (int i = 0; i < rows; i++)
 			{
@@ -58,6 +66,5 @@ namespace ArrayExercises
 			int[,] array = new int[rows, columns];
 			return array;
 		}
-
 	}
 }

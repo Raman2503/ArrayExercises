@@ -6,8 +6,8 @@ namespace ArrayExercises
 	{
 		static void Main(string[] args)
 		{
-			int rows = 2;
-			int columns = 2;
+			int rows = 3;
+			int columns = 3;
 
 
 			//Console.WriteLine("Insert number of rows");
@@ -20,10 +20,23 @@ namespace ArrayExercises
 
 			CreateArray array = new CreateArray();
 
-			var rndArray = array.Create2DArray(rows, columns);
+			ArrayPrinter printer = new ArrayPrinter();
 
 			FillWithZeros fill = new FillWithZeros();
-			fill.FillUpperLeftWithZeros(rndArray, rows, columns);
+
+
+
+			var rndArray = array.Create2DArray(rows, columns);
+
+			printer.PrintArray(rndArray);
+
+			var zeroArray = fill.FillUpperRightWithZeros(rndArray, rows, columns);
+			
+			printer.PrintArray(zeroArray);
+
+			Console.WriteLine();
+
+
 
 			//fill.FillUpperRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
