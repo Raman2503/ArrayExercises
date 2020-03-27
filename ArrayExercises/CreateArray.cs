@@ -6,23 +6,27 @@ namespace ArrayExercises
 {
 	public class CreateArray
 	{
-		public void Create2DArray(int rows, int columns)
+		public int [,] Create2DArray(int rows, int columns)
 		{
 			Random rand = new Random();
-
+			FillWithZeros zeros = new FillWithZeros();
+			Console.WriteLine("Random Array");
+			
 			for (int i = 0; i < rows; i++)
 			{
 				Console.WriteLine();
 
 				for (int j = 0; j < columns; j++)
 				{
-					int[,] array = new int[rows, columns];
+					int[,] matrix = new int[rows, columns];
 
-					array[i, j] = rand.Next();
-					Console.Write(array[i, j] + " ");
+					matrix[i, j] = rand.Next();
+
+					Console.Write(matrix[i, j] + " ");
 				}
 			}
-			Console.Read();
+			int[,] array = new int[rows, columns];
+			return array;
 		}
 	}
 }

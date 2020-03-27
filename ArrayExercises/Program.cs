@@ -19,7 +19,15 @@ namespace ArrayExercises
 			//columns = Convert.ToInt32(Console.ReadLine());
 
 			CreateArray array = new CreateArray();
-			array.Create2DArray(rows, columns);
+
+			var rndArray = array.Create2DArray(rows, columns);
+
+			FillWithZeros fill = new FillWithZeros();
+			fill.FillUpperLeftWithZeros(rndArray, rows, columns);
+
+			//fill.FillUpperRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
+
+			//fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
 		}
 	}
