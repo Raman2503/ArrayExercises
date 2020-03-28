@@ -6,6 +6,10 @@ namespace ArrayExercises
 {
 	public class ArrayPrinter
 	{
+		/// <summary>
+		/// This class contains the method for printing 2D arrays on the console.
+		/// </summary>
+		/// <param name="array"></param>
 		public void PrintArray(int[,] array)
 
 		{

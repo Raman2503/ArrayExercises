@@ -6,7 +6,7 @@ namespace ArrayExercises
 	{
 		static void Main(string[] args)
 		{
-			int rows = 3;
+			int rows = 4;
 			int columns = 3;
 
 
@@ -38,15 +38,7 @@ namespace ArrayExercises
 
 			Console.WriteLine();
 
-
-			// Fill lower left with zeros
-			var lowerLeft = fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
-
-			printer.PrintArray(lowerLeft);
-
-			Console.WriteLine();
-
-			// FIll upper left with zeros
+			// Fill upper left with zeros
 			var upperLeft = fill.FillUpperLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
 			printer.PrintArray(upperLeft);
@@ -54,10 +46,17 @@ namespace ArrayExercises
 			Console.WriteLine();
 
 
-			// FIll lower right with zeros
+			// Fill lower right with zeros
 			var lowerRight = fill.FillLowerRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
 			printer.PrintArray(lowerRight);
+
+			Console.WriteLine();
+
+			//Fill lower left with zeros
+			var lowerLeft = fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
+
+			printer.PrintArray(lowerLeft);
 
 			Console.WriteLine();
 		}

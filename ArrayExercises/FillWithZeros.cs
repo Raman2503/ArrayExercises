@@ -21,7 +21,7 @@ namespace ArrayExercises
 					newArray[i, j] = matrix[i, j];
 				}
 			}
-
+			
 			// Filling array with zeros
 			for (int i = 0; i < rows; i++)
 			{
@@ -54,15 +54,33 @@ namespace ArrayExercises
 			}
 
 			// Filling array with zeros
-			for (int i = 0; i < rows ; i++)
-			{
-				Console.WriteLine();
 
-				for (int j = 0; j <= columns-i-1  ; j++)
+			if (newArray.GetLength(0) > newArray.GetLength(1))
+			{
+				for (int j = 0; j < columns; j++)
 				{
-					newArray[i, j] = 0;
+					Console.WriteLine();
+
+					for (int i = 0; j <= rows - i -1; i++)
+					{
+						newArray[i, j] = 0;
+					}
 				}
 			}
+
+			else
+			{
+				for (int i = 0; i < rows; i++)
+				{
+					Console.WriteLine();
+
+					for (int j = 0; j <= columns - 1 - i; j++)
+					{
+						newArray[i, j] = 0;
+					}
+				}
+			}
+
 			return newArray;
 		}
 
@@ -85,17 +103,30 @@ namespace ArrayExercises
 			}
 
 			// Filling array with zeros
-			for (int i = 2; i >= 0 ; i--)
+			if (newArray.GetLength(0) > newArray.GetLength(1))
 			{
-				Console.WriteLine();
-
-				for (int j = rows - i -1; j < columns; j++)
+				for (int i = rows - 1; i > 0; i--)
 				{
-					newArray[i, j] = 0;
+					Console.WriteLine();
+
+					for (int j = columns - i; j < columns  ; j++)
+					{
+						newArray[i, j] = 0;
+					}
+				}
+			}
+			else
+			{
+				for (int i = newArray.GetLength(0) - 1; i >= 0; i--)
+				{
+					Console.WriteLine();
+					for (int j = newArray.GetLength(1) - i - 1; j < columns; j++)
+					{
+						newArray[i, j] = 0;
+					}
 				}
 			}
 			return newArray;
-
 		}
 
 		public int [,] FillLowerLeftWithZeros(int[,] matrix, int rows, int columns)
@@ -117,15 +148,35 @@ namespace ArrayExercises
 			}
 
 			// Filling array with zeros
-			for (int i = 0; i < rows; i++)
+			if(newArray.GetLength(0)> newArray.GetLength(1))
 			{
-				Console.WriteLine();
 
-				for (int j = 0; j <= i; j++)
+				for (int j = 0; j < columns; j++)
 				{
-					newArray[i, j] = 0;
+						for (int i = j; i < rows; i++)
+						{
+							newArray[i, j] = 0;
+						}
+				}
+				
+			}
+
+			else
+			{
+				for (int i = 0; i < rows; i++)
+				{
+
+					Console.WriteLine();
+
+					for (int j = 0; j <= i; j++)
+					{
+						newArray[i, j] = 0;
+
+					}
+
 				}
 			}
+		
 			return newArray;
 		}
 	}
