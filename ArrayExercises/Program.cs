@@ -25,23 +25,41 @@ namespace ArrayExercises
 			FillWithZeros fill = new FillWithZeros();
 
 
+			Console.WriteLine("Random Array");
 
 			var rndArray = array.Create2DArray(rows, columns);
 
 			printer.PrintArray(rndArray);
 
-			var zeroArray = fill.FillUpperRightWithZeros(rndArray, rows, columns);
+			// Fill upper right with zeros
+			var upperRight = fill.FillUpperRightWithZeros(rndArray, rows, columns);
 			
-			printer.PrintArray(zeroArray);
+			printer.PrintArray(upperRight);
 
 			Console.WriteLine();
 
 
+			// Fill lower left with zeros
+			var lowerLeft = fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
-			//fill.FillUpperRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
+			printer.PrintArray(lowerLeft);
 
-			//fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
+			Console.WriteLine();
 
+			// FIll upper left with zeros
+			var upperLeft = fill.FillUpperLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
+
+			printer.PrintArray(upperLeft);
+
+			Console.WriteLine();
+
+
+			// FIll lower right with zeros
+			var lowerRight = fill.FillLowerRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
+
+			printer.PrintArray(lowerRight);
+
+			Console.WriteLine();
 		}
 	}
 }

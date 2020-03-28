@@ -9,7 +9,6 @@ namespace ArrayExercises
 		public int [,] Create2DArray(int rows, int columns)
 		{
 			Random rand = new Random();
-			Console.WriteLine("Random Array");
 
 			int[,] matrix = new int[rows, columns];
 
