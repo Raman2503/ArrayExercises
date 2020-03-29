@@ -11,7 +11,6 @@ namespace ArrayExercises
 
 			int[,] matrix = new int[rows, columns];
 
-
 			for (int i = 0; i < rows; i++)
 			{
 				Console.WriteLine();
