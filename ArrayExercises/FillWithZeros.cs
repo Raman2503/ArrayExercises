@@ -93,14 +93,32 @@ namespace ArrayExercises
 			// Filling array with zeros
 			if (newArray.GetLength(0) > newArray.GetLength(1))
 			{
-				for (int i = rows - 1; i > 0; i--)
+				try
 				{
-					for (int j = columns - i; j < columns  ; j++)
+					for (int i = rows - 1; i > 0; i--)
 					{
-						newArray[i, j] = 0;
+						for (int j = columns - i; j < columns; j++)
+						{
+							newArray[i, j] = 0;
+						}
+					}
+				}
+				catch
+				{
+
+				}
+				finally
+				{
+					for (int i = rows - 1; i > 0; i--)
+					{
+						for (int j = columns - i +1; j < columns; j++)
+						{
+							newArray[i, j] = 0;
+						}
 					}
 				}
 			}
+
 			else
 			{
 				for (int i = newArray.GetLength(0) - 1; i >= 0; i--)
@@ -136,13 +154,12 @@ namespace ArrayExercises
 				for (int j = 0; j < columns; j++)
 				{
 					for (int i = j; i < rows; i++)
-						{
+					{
 							newArray[i, j] = 0;
-						}
+					}
 				}
 				
 			}
-
 			else
 			{
 				for (int i = 0; i < rows; i++)

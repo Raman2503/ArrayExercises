@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ArrayExercises
 {
+	[SuppressMessage("ReSharper", "UnusedParameter.Local")]
 	class Program
 	{
 		static void Main(string[] args)
@@ -45,18 +47,17 @@ namespace ArrayExercises
 
 			Console.WriteLine();
 
+			//Fill lower left with zeros
+			var lowerLeft = fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
+
+			printer.PrintArray(lowerLeft);
+
+			Console.WriteLine();
 
 			// Fill lower right with zeros
 			var lowerRight = fill.FillLowerRightWithZeros(array.Create2DArray(rows, columns), rows, columns);
 
 			printer.PrintArray(lowerRight);
-
-			Console.WriteLine();
-
-			//Fill lower left with zeros
-			var lowerLeft = fill.FillLowerLeftWithZeros(array.Create2DArray(rows, columns), rows, columns);
-
-			printer.PrintArray(lowerLeft);
 
 			Console.WriteLine();
 

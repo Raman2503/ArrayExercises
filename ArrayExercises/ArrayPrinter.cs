@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace ArrayExercises
 {
@@ -20,7 +19,7 @@ namespace ArrayExercises
 			{
 				for (int j = 0; j < columns; j++)
 				{
-					Console.Write($"{array[i, j]} \t");
+					Console.Write("{0,10}",array[i, j] + "\t");
 				}
 
 				Console.WriteLine();
