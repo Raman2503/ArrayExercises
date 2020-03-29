@@ -20,8 +20,9 @@ namespace ArrayExercises
 			{
 				for (int j = 0; j < columns; j++)
 				{
-					Console.Write($"{array[i, j]}  ");
+					Console.Write($"{array[i, j]} \t");
 				}
+
 				Console.WriteLine();
 			}
 		}
