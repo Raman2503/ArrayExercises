@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FillTrianglesWithZeros", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FillWithZeros", "FillWithZeros", "{23D358A0-7242-4D33-854B-4450CBD17DD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortArray", "SortArray\SortArray.csproj", "{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BubbleSort", "BubbleSort", "{3F01C255-9EBC-4719-9135-32F51959AE10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{78EE4B09-A99E-4FD9-AF96-B5B1FD672B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78EE4B09-A99E-4FD9-AF96-B5B1FD672B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78EE4B09-A99E-4FD9-AF96-B5B1FD672B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{78EE4B09-A99E-4FD9-AF96-B5B1FD672B2A} = {23D358A0-7242-4D33-854B-4450CBD17DD4}
+		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE} = {3F01C255-9EBC-4719-9135-32F51959AE10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF5F9320-0FC4-4463-B297-117E8A9781B6}
