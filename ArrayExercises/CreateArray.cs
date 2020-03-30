@@ -17,7 +17,7 @@ namespace ArrayExercises
 
 				for (int j = 0; j < columns; j++)
 				{
-					matrix[i, j] = rand.Next();
+					matrix[i, j] = rand.Next(1000);
 				}
 			}
 
