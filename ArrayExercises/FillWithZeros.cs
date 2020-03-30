@@ -208,7 +208,7 @@ namespace ArrayExercises
 			{
 				for (int j = columns - 1; j > columns / 2 - 1; j--)
 				{
-					for (int i = columns - 1 - j; i < j; i++)
+					for (int i = columns - 1 - j; i < rows; i++)
 					{
 						newArray[i, j] = 0;
 					}
