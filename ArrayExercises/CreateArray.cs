@@ -13,8 +13,6 @@ namespace ArrayExercises
 
 			for (int i = 0; i < rows; i++)
 			{
-				Console.WriteLine();
-
 				for (int j = 0; j < columns; j++)
 				{
 					matrix[i, j] = rand.Next(1000);

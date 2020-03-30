@@ -8,8 +8,8 @@ namespace ArrayExercises
 	{
 		static void Main(string[] args)
 		{
-			int rows = 0;
-			int columns = 0;
+			int rows = 5;
+			int columns = 4;
 
 
 			//Console.WriteLine("Insert number of rows");

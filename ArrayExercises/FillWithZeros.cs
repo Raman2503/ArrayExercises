@@ -52,8 +52,6 @@ namespace ArrayExercises
 			{
 				for (int j = 0; j < columns; j++)
 				{
-					Console.WriteLine();
-
 					for (int i = 0; j <= rows - i -1; i++)
 					{
 						newArray[i, j] = 0;
