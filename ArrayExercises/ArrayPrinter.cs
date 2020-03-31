@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace ArrayExercises
+namespace FillTrianglesWithZeros
 {
 	public class ArrayPrinter
 	{

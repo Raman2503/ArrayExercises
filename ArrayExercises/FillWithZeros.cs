@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ArrayExercises
+namespace FillTrianglesWithZeros
 {
 	public class FillWithZeros
 	{
@@ -102,7 +102,7 @@ namespace ArrayExercises
 				}
 				catch
 				{
-
+					// ignored
 				}
 				finally
 				{

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SortArray
+﻿namespace SortArray
 {
 	public class ArraySorter
 	{
