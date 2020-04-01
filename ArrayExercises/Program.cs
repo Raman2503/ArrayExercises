@@ -20,50 +20,47 @@ namespace FillTrianglesWithZeros
 
 			//columns = Convert.ToInt32(Console.ReadLine());
 
-			CreateArray array = new CreateArray();
-
-			ArrayPrinter printer = new ArrayPrinter();
 
 			FillWithZeros fill = new FillWithZeros();
 
 			Console.WriteLine("Random Array");
 
-			var rndArray = array.Create2DArray(rows, columns);
+			var rndArray = CreateArray.Create2DArray(rows, columns);
 
-			printer.PrintArray(rndArray);
+			ArrayPrinter.PrintArray(rndArray);
 
 			// Fill upper right with zeros
 			var upperRight = fill.FillUpperRightWithZeros(rndArray, rows, columns);
 
-			printer.PrintArray(upperRight);
+			ArrayPrinter.PrintArray(upperRight);
 
 			Console.WriteLine();
 
 			// Fill upper left with zeros
 			var upperLeft = fill.FillUpperLeftWithZeros(rndArray, rows, columns);
 
-			printer.PrintArray(upperLeft);
+			ArrayPrinter.PrintArray(upperLeft);
 
 			Console.WriteLine();
 
 			//Fill lower left with zeros
 			var lowerLeft = fill.FillLowerLeftWithZeros(rndArray, rows, columns);
 
-			printer.PrintArray(lowerLeft);
+			ArrayPrinter.PrintArray(lowerLeft);
 
 			Console.WriteLine();
 
 			// Fill lower right with zeros
 			var lowerRight = fill.FillLowerRightWithZeros(rndArray, rows, columns);
 
-			printer.PrintArray(lowerRight);
+			ArrayPrinter.PrintArray(lowerRight);
 
 			Console.WriteLine();
 
 			//Fill right with zeros
 			var right = fill.FillRightWithZeros(rndArray, rows, columns);
 
-			printer.PrintArray(right);
+			ArrayPrinter.PrintArray(right);
 
 			Console.WriteLine();
 		}

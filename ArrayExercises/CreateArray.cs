@@ -4,7 +4,7 @@ namespace FillTrianglesWithZeros
 {
 	public class CreateArray
 	{
-		public int [,] Create2DArray(int rows, int columns)
+		public static int [,] Create2DArray(int rows, int columns)
 		{
 			Random rand = new Random();
 

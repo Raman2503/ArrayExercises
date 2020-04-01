@@ -8,7 +8,7 @@ namespace FillTrianglesWithZeros
 		/// This class contains the method for printing 2D arrays on the console.
 		/// </summary>
 		/// <param name="array"></param>
-		public void PrintArray(int[,] array)
+		public static void PrintArray(int[,] array)
 
 		{
 			int rows = array.GetLength(0);
