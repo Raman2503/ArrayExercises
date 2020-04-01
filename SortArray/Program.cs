@@ -11,7 +11,6 @@ namespace SortArray
 		{
 			int columns = 6;
 			
-			
 			// Create and print random 1D array
 			Console.WriteLine("Random 1D Array");
 

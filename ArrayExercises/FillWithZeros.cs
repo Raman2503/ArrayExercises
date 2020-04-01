@@ -2,9 +2,9 @@
 
 namespace FillTrianglesWithZeros
 {
-	public class FillWithZeros
+	public static class FillWithZeros
 	{
-		public int [,] FillUpperRightWithZeros(int[,] matrix, int rows, int columns)
+		public static int [,] FillUpperRightWithZeros(this int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine();
 			Console.WriteLine("Upper Right");
@@ -31,7 +31,7 @@ namespace FillTrianglesWithZeros
 			return newArray;
 		}
 
-		public int[,] FillUpperLeftWithZeros(int[,] matrix, int rows, int columns)
+		public static int[,] FillUpperLeftWithZeros(this int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine("Upper Left");
 
@@ -72,7 +72,7 @@ namespace FillTrianglesWithZeros
 			return newArray;
 		}
 
-		public int[,] FillLowerRightWithZeros(int[,] matrix, int rows, int columns)
+		public static int[,] FillLowerRightWithZeros(this int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine("Lower Right");
 
@@ -129,7 +129,7 @@ namespace FillTrianglesWithZeros
 			return newArray;
 		}
 
-		public int [,] FillLowerLeftWithZeros(int[,] matrix, int rows, int columns)
+		public static int [,] FillLowerLeftWithZeros(this int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine("Lower Left");
 
@@ -173,7 +173,7 @@ namespace FillTrianglesWithZeros
 			return newArray;
 		}
 
-		public int[,] FillRightWithZeros(int[,] matrix, int rows, int columns)
+		public static int[,] FillRightWithZeros(this int[,] matrix, int rows, int columns)
 		{
 			Console.WriteLine("Right");
 
