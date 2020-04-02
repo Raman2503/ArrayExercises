@@ -23,9 +23,9 @@ namespace Sierpinski
 				Point middlePoint23 = new Point((p2.X + p3.X) / 2, (p2.Y + p3.Y) / 2);
 
 				// recursive call
-				DrawSerpinskiTriangle(middlePoint12, middlePoint13, middlePoint23, depth);
-				//DrawSerpinskiTriangle(middlePoint12, middlePoint13, middlePoint23, depth);
-				//DrawSerpinskiTriangle(middlePoint12, middlePoint13, middlePoint23, depth);
+				DrawSerpinskiTriangle(p1, middlePoint12, middlePoint13, depth);
+				DrawSerpinskiTriangle(middlePoint12, p2, middlePoint23, depth);
+				DrawSerpinskiTriangle(middlePoint13, middlePoint23, p3, depth);
 			}
 		}
 	}
