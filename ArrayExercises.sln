@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortArray", "SortArray\Sort
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BubbleSort and BinarySearch", "BubbleSort and BinarySearch", "{3F01C255-9EBC-4719-9135-32F51959AE10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sierpinski", "Sierpinski\Sierpinski.csproj", "{4D72C626-05B9-4127-8705-C404AE45E3C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D72C626-05B9-4127-8705-C404AE45E3C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D72C626-05B9-4127-8705-C404AE45E3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D72C626-05B9-4127-8705-C404AE45E3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D72C626-05B9-4127-8705-C404AE45E3C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
