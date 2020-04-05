@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+// ReSharper disable All
 
 namespace Sierpinski
 {
@@ -9,7 +10,7 @@ namespace Sierpinski
 		private Point p1;
 		private Point p2;
 		private Point p3;
-		int depth = 3;
+		int depth = 9;
 
 		public Form1()
 		{
@@ -24,8 +25,10 @@ namespace Sierpinski
 			p3 = new Point(550, 300);
 
 			var picture = pictureBox.CreateGraphics();
+
 			// Function call
-			Logic.DrawSerpinskiTriangle(p1, p2, p3, depth, picture);
+			Logic.DrawSierpinskiTriangle(p1, p2, p3, depth, picture);
+
 		}
 	}
 }
