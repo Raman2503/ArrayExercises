@@ -2,10 +2,10 @@
 
 namespace Sierpinski
 {
-	public static class Sierpinski
+	public static class SierpinskiTriangle
 	{
 	
-		public static void DrawSierpinskiTriangle(Point p1, Point p2, Point p3, int depth, Graphics pictureBox)
+		public static void Draw(Point p1, Point p2, Point p3, int depth, Graphics pictureBox)
 		{
 			// Check end condition			
 			if (depth > 0)
@@ -18,9 +18,9 @@ namespace Sierpinski
 				Point middlePoint23 = new Point((p2.X + p3.X) / 2, (p2.Y + p3.Y) / 2);
 
 				// Recursive function calls for new triangles
-				DrawSierpinskiTriangle(p1, middlePoint12, middlePoint13, depth, pictureBox);
-				DrawSierpinskiTriangle(middlePoint12, p2, middlePoint23, depth, pictureBox);
-				DrawSierpinskiTriangle(middlePoint13, middlePoint23, p3, depth, pictureBox);
+				Draw(p1, middlePoint12, middlePoint13, depth, pictureBox);
+				Draw(middlePoint12, p2, middlePoint23, depth, pictureBox);
+				Draw(middlePoint13, middlePoint23, p3, depth, pictureBox);
 			}
 			else
 			{

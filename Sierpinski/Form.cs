@@ -17,7 +17,7 @@ namespace Sierpinski
 			private Point p1;
 			private Point p2;
 			private Point p3;
-			int depth = 10;
+		readonly int depth = 10;
 
 		private void Draw_Button_Click_1(object sender, EventArgs e)
 		{
@@ -31,7 +31,7 @@ namespace Sierpinski
 			var picture = pictureBox.CreateGraphics();
 
 			// Function call
-			Sierpinski.DrawSierpinskiTriangle(p1, p2, p3, depth, picture);
+			SierpinskiTriangle.Draw(p1, p2, p3, depth, picture);
 		}
 	}
 }
