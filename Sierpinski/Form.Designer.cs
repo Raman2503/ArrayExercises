@@ -1,6 +1,6 @@
 ﻿namespace Sierpinski
 {
-	partial class Form1
+	partial class Form
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,6 +30,8 @@
 		{
 			this.Draw_Button = new System.Windows.Forms.Button();
 			this.pictureBox = new System.Windows.Forms.PictureBox();
+			this.depthTextBoxLabel = new System.Windows.Forms.TextBox();
+			this.depthTextbox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -51,17 +53,35 @@
 			this.pictureBox.TabIndex = 1;
 			this.pictureBox.TabStop = false;
 			// 
-			// Form1
+			// depthTextBoxLabel
+			// 
+			this.depthTextBoxLabel.Location = new System.Drawing.Point(151, 408);
+			this.depthTextBoxLabel.Name = "depthTextBoxLabel";
+			this.depthTextBoxLabel.Size = new System.Drawing.Size(91, 20);
+			this.depthTextBoxLabel.TabIndex = 2;
+			this.depthTextBoxLabel.Text = "Selected depth:";
+			// 
+			// depthTextbox
+			// 
+			this.depthTextbox.Location = new System.Drawing.Point(248, 408);
+			this.depthTextbox.Name = "depthTextbox";
+			this.depthTextbox.Size = new System.Drawing.Size(39, 20);
+			this.depthTextbox.TabIndex = 3;
+			// 
+			// Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.depthTextbox);
+			this.Controls.Add(this.depthTextBoxLabel);
 			this.Controls.Add(this.pictureBox);
 			this.Controls.Add(this.Draw_Button);
-			this.Name = "Form1";
+			this.Name = "Form";
 			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -69,6 +89,8 @@
 
 		private System.Windows.Forms.Button Draw_Button;
 		private System.Windows.Forms.PictureBox pictureBox;
+		private System.Windows.Forms.TextBox depthTextbox;
+		private System.Windows.Forms.TextBox depthTextBoxLabel;
 	}
 }
 
