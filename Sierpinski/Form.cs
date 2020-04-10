@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace Sierpinski
 {
@@ -9,29 +8,34 @@ namespace Sierpinski
 		public Form()
 		{
 			InitializeComponent();
-			depthTextbox.Text = depth.ToString();
-			depthTextbox.ReadOnly = true;
-			depthTextBoxLabel.ReadOnly = true;
 		}
 
-			private Point p1;
-			private Point p2;
-			private Point p3;
-		readonly int depth = 10;
+			private Point _p1;
+			private Point _p2;
+			private Point _p3;
 
 		private void Draw_Button_Click_1(object sender, EventArgs e)
 		{
-			depthTextbox.Text = depth.ToString();
+			DrawSierpinskiTriangle();
+		}
 
+		private void pictureBox_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		{
+			DrawSierpinskiTriangle();
+		}
+
+		private void DrawSierpinskiTriangle()
+		{
 			// Define initial points of first triangle
-			p1 = new Point(300, 0);
-			p2 = new Point(50, 300);
-			p3 = new Point(550, 300);
+			_p1 = new Point(pictureBox.Width / 2, 0);
+			_p2 = new Point(0, pictureBox.Height);
+			_p3 = new Point(pictureBox.Width, pictureBox.Height);
 
 			var picture = pictureBox.CreateGraphics();
+			picture.Clear(Color.White);
 
 			// Function call
-			SierpinskiTriangle.Draw(p1, p2, p3, depth, picture);
+			SierpinskiTriangle.Draw(_p1, _p2, _p3, picture);
 		}
 	}
 }
