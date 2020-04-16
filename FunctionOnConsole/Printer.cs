@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FunctionOnConsole
+namespace Functions
 {
 	static class Printer
 	{
@@ -10,11 +10,12 @@ namespace FunctionOnConsole
 			string y1label = "x^2";
 			string y2label = "sin(x)";
 
-			Console.WriteLine($"{xlabel.PadLeft(5)} {y1label.PadLeft(8)} {y2label.PadLeft(20)}");
+
+			Console.WriteLine($"{xlabel.PadLeft(10)} {y1label.PadLeft(5)} {y2label.PadLeft(10)}");
 			Console.WriteLine("-------------------------------------");
 			for (int i = 0; i < inputs.Length; i++)
 			{
-				Console.WriteLine($"{inputs[i].ToString().PadLeft(5)} {square[i].ToString().PadLeft(8)} {sin[i].ToString().PadLeft(20)}");
+				Console.WriteLine($"{inputs[i].ToString("F3").PadLeft(10)} {square[i].ToString("F4").PadLeft(5)} {sin[i].ToString("F6").PadLeft(10)}");
 			}
 		}
 	}

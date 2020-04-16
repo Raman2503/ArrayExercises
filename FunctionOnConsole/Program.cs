@@ -1,4 +1,6 @@
-﻿namespace FunctionOnConsole
+﻿using FunctionCalculations;
+
+namespace Functions
 {
 	class Program
 	{
@@ -14,6 +16,11 @@
 
 			// Save results to csv file
 			CsvWriter.SaveToCsv(inputs,square,sin);
+
+			//Calculate area under curve with left point of rectangle as height
+			var areaLeftPoint = AreaCalculator.CalculateAreaWithLeftPointAsHeight();
+			System.Console.WriteLine();
+			System.Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
 		}
 	}
 }

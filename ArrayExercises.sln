@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sierpinski", "Sierpinski\Si
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recursive Methods", "Recursive Methods", "{9C1EE47D-EF93-4F28-A844-FAD7793D81BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionOnConsole", "FunctionOnConsole\FunctionOnConsole.csproj", "{52B95D3A-1BA9-4483-8BE0-87A42A025824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionCalculations", "FunctionOnConsole\FunctionCalculations.csproj", "{52B95D3A-1BA9-4483-8BE0-87A42A025824}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculationsWithFunctions", "CalculationsWithFunctions", "{A4D67ED8-7955-48E6-AD73-05A1C6F29EF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,7 @@ Global
 		{78EE4B09-A99E-4FD9-AF96-B5B1FD672B2A} = {23D358A0-7242-4D33-854B-4450CBD17DD4}
 		{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE} = {3F01C255-9EBC-4719-9135-32F51959AE10}
 		{4D72C626-05B9-4127-8705-C404AE45E3C3} = {9C1EE47D-EF93-4F28-A844-FAD7793D81BC}
+		{52B95D3A-1BA9-4483-8BE0-87A42A025824} = {A4D67ED8-7955-48E6-AD73-05A1C6F29EF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF5F9320-0FC4-4463-B297-117E8A9781B6}

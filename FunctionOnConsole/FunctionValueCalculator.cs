@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace FunctionOnConsole
+namespace Functions
 {
-	public static class Calculator
+	public static class FunctionValueCalculator
 	{
 		public static double[] CalculateSquare(this double[] inputs)
 		{

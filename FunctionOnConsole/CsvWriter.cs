@@ -1,12 +1,12 @@
 ﻿using System.IO;
 
-namespace FunctionOnConsole
+namespace Functions
 {
 	public static class CsvWriter
 	{
 		 public static void SaveToCsv(double[] inputs, double[] squareResults, double[] sinResults)
 		{
-			Directory.SetCurrentDirectory("D:/tmp");
+			//Directory.SetCurrentDirectory("D:\temp");
 			var csvFile = $"{Directory.GetCurrentDirectory()}/Results.csv";
 
 			using var file = new StreamWriter(csvFile);
