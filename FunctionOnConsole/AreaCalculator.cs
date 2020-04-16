@@ -7,19 +7,19 @@ namespace FunctionCalculations
 {
 	public static class AreaCalculator
 	{
-		static double startValue = 1;
-		static double endValue = 3;
-		static double stepSize = 0.001 ;
+		static readonly double startValue = 1;
+		static readonly double endValue = 3;
+		static readonly double stepSize = 0.005 ;
 
 
 		static double CalculateNumberOfRectangles()
 		{
-			return (startValue - endValue) / (stepSize);
+			var numRectangles = Math.Abs((startValue - endValue) / (stepSize));
+			return Math.Round(numRectangles);
 		}
 
-		static double[] CalculateStepValues()
+		static double[] CalculateStepValuesForLeftPoint(double numRectangles)
 		{
-			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			double[] stepValues = new double[(int)numRectangles];
 
 			for (int i=0; i < numRectangles; i++)
@@ -29,17 +29,25 @@ namespace FunctionCalculations
 			return stepValues;
 		}
 
-
-		static double CalculateWidth()
+		static double[] CalculateStepValuesForRightPoint(double numRectangles)
 		{
-			var numRectangle = CalculateNumberOfRectangles();
+			double[] stepValues = new double[(int)numRectangles];
+
+			for (int i = 0; i < numRectangles; i++)
+			{
+				stepValues[i] = startValue + (i+1) * stepSize;
+			}
+			return stepValues;
+		}
+
+
+		static double CalculateWidth(double numRectangle)
+		{
 			return (endValue - startValue) / numRectangle;
 		}
 
-		static double[] CalculateHeight()
+		static double[] CalculateHeight(double[] stepValues)
 		{
-			var stepValues = CalculateStepValues();
-
 			double[] height = new double[stepValues.Length];
 
 			for (int i = 0; i <= stepValues.Length; i++)
@@ -49,13 +57,35 @@ namespace FunctionCalculations
 			return height;
 		}
 
-
+	
 
 		public static double CalculateAreaWithLeftPointAsHeight()
 		{
-			var width = Math.Abs(CalculateWidth());
-			var height = CalculateHeight();
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
+			var width = Math.Abs(CalculateWidth(numRectangles));
+			var stepValues = CalculateStepValuesForLeftPoint(numRectangles);
+			var height = CalculateHeight(stepValues);
+			double[] areaOfEachRectangle = new double[(int)numRectangles];
+			var totalArea = 0.0;
+
+			if (numRectangles != 0)
+			{
+				for (int i = 0; i < numRectangles; i++)
+				{
+					areaOfEachRectangle[i] = height[i] * width;
+
+					totalArea = totalArea + areaOfEachRectangle[i];
+				}
+			}
+			return totalArea;
+		}
+
+		public static double CalculateAreaWithRightPointAsHeight()
+		{
+			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
+			var width = Math.Abs(CalculateWidth(numRectangles));
+			var stepValues = CalculateStepValuesForRightPoint(numRectangles);
+			var height = CalculateHeight(stepValues);
 			double[] areaOfEachRectangle = new double[(int)numRectangles];
 			var totalArea = 0.0;
 

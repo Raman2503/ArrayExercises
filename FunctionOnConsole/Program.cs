@@ -21,6 +21,11 @@ namespace Functions
 			var areaLeftPoint = AreaCalculator.CalculateAreaWithLeftPointAsHeight();
 			System.Console.WriteLine();
 			System.Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
+
+			//Calculate area under curve with right point of rectangle as height
+			var areaRightPoint = AreaCalculator.CalculateAreaWithRightPointAsHeight();
+			System.Console.WriteLine();
+			System.Console.WriteLine($"The area for right point as height is {areaRightPoint}");
 		}
 	}
 }
