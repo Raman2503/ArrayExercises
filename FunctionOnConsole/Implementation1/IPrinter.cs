@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace FunctionCalculations
+namespace FunctionCalculations.Implementation1
 {
 	interface IPrinter
 	{
-		void Print(double[] inputs, double[] square, double[] sin);
+		void Print(List<double> inputs, List<double> square, List<double> sin);
 	}
 }

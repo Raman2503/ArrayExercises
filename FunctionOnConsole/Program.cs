@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using FunctionCalculations;
+using FunctionCalculations.Implementation1;
 
-namespace Functions
+namespace FunctionCalculations
 {
 	class Program
 	{
@@ -14,26 +14,29 @@ namespace Functions
 
 		private static void Implementation1()
 		{
-			// Retrieve input values and perform calculations on inputs
-			var inputs = DataManager.GetInputs();
-			var square = inputs.CalculateSquare();
-			var sin = inputs.CalculateSin();
+			 double initialValue = 1;
+			 double endValue = 3;
+			 double step = 0.005;
 
+			var inputs = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x);
+			var square = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x * x);
+			var sin = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => Math.Sin(x));
+			
 			// Print inputs and function values on console
-			IPrinter consolePrinter = new Printer();
+			IPrinter consolePrinter = new ConsolePrinter();
 			consolePrinter.Print(inputs,square, sin);
 
 			// Save results to csv file
 			IPrinter csvPrinter = new CsvWriter();
 			csvPrinter.Print(inputs,square, sin);
-
+			
 			//Calculate area under curve with left point of rectangle as height
-			var areaLeftPoint = AreaCalculator.CalculateAreaWithLeftPointAsHeight();
+			var areaLeftPoint = AreaCalculatorLeftPointAsHeight.CalculateAreaWithLeftPointAsHeight();
 			Console.WriteLine();
 			Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
 
 			//Calculate area under curve with right point of rectangle as height
-			var areaRightPoint = AreaCalculator.CalculateAreaWithRightPointAsHeight();
+			var areaRightPoint = AreaCalculatorRightPointAsHeight.CalculateAreaWithRightPointAsHeight();
 			Console.WriteLine();
 			Console.WriteLine($"The area for right point as height is {areaRightPoint}");
 		}
@@ -84,12 +87,12 @@ namespace Functions
 
 
 			//Calculate area under curve with left point of rectangle as height
-			var areaLeftPoint = AreaCalculator.CalculateAreaWithLeftPointAsHeight();
+			var areaLeftPoint = AreaCalculatorLeftPointAsHeight.CalculateAreaWithLeftPointAsHeight();
 			Console.WriteLine();
 			Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
 
 			//Calculate area under curve with right point of rectangle as height
-			var areaRightPoint = AreaCalculator.CalculateAreaWithRightPointAsHeight();
+			var areaRightPoint = AreaCalculatorRightPointAsHeight.CalculateAreaWithRightPointAsHeight();
 			Console.WriteLine();
 			Console.WriteLine($"The area for right point as height is {areaRightPoint}");
 		}

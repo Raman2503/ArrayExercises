@@ -1,22 +1,23 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 
-namespace Functions
+namespace FunctionCalculations.Implementation1
 {
 	public static class FunctionValueCalculator
 	{
-		public static double[] CalculateSquare(this double[] inputs)
+		internal static List<double> Calculate(in double initialValue, in double endValue, in double step, Func<double, double> func)
 		{
-			var square = inputs.Select(x => x*x).ToArray();
+			double currentX = initialValue;
+			List<double> results = new List<double>();
+			while (currentX < endValue)
+			{
+				var fx = func(currentX);
+				results.Add(fx);
 
-			return square;
-		}
+				currentX += step;
+			}
 
-		public static double[] CalculateSin(this double[] inputs)
-		{
-			var sin = inputs.Select(Math.Sin).ToArray();
-
-			return sin;
+			return results;
 		}
 	}
 }
