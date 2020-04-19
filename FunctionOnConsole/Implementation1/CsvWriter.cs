@@ -1,13 +1,13 @@
 ﻿using System.IO;
+using FunctionCalculations;
 
 namespace Functions
 {
-	public static class CsvWriter
+	public class CsvWriter:IPrinter
 	{
-		 public static void SaveToCsv(double[] inputs, double[] squareResults, double[] sinResults)
+		 public void Print(double[] inputs, double[] squareResults, double[] sinResults)
 		{
-			//Directory.SetCurrentDirectory("D:\temp");
-			var csvFile = $"{Directory.GetCurrentDirectory()}/Results.csv";
+			var csvFile = "Results.csv";
 
 			using var file = new StreamWriter(csvFile);
 			file.WriteLine("x;x^2;sin(x)");
