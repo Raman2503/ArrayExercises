@@ -1,26 +1,27 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 
 namespace FunctionCalculations.Implementation1
 {
-	class AreaCalculatorRightPointAsHeight : AreaCalculator
+	class AreaCalculatorMiddlePointAsHeight : AreaCalculator
 	{
-		static double[] CalculateStepValuesForRightPoint(double numRectangles)
+		static double[] CalculateStepValuesForMiddlePoint(double numRectangles)
 		{
 			double[] stepValues = new double[(int)numRectangles];
 
 			for (int i = 0; i < numRectangles; i++)
 			{
-				stepValues[i] = (startValue+stepSize) + i * stepSize;
+				stepValues[i] = (startValue + 0.5*stepSize) + i * stepSize;  
 			}
 			return stepValues;
 		}
-		
-		public static double CalculateAreaWithRightPointAsHeight()
+
+		public static double CalculateAreaWithMiddlePointAsHeight()
 		{
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			var width = Math.Abs(CalculateWidth(numRectangles));
-			var stepValues = CalculateStepValuesForRightPoint(numRectangles);
+			var stepValues = CalculateStepValuesForMiddlePoint(numRectangles);
 			var height = CalculateHeight(stepValues);
 			double[] areaOfEachRectangle = new double[(int)numRectangles];
 			var totalArea = 0.0;

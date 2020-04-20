@@ -39,6 +39,14 @@ namespace FunctionCalculations
 			var areaRightPoint = AreaCalculatorRightPointAsHeight.CalculateAreaWithRightPointAsHeight();
 			Console.WriteLine();
 			Console.WriteLine($"The area for right point as height is {areaRightPoint}");
+
+			//Calculate area under curve with middle point of rectangle as height
+			var areaMiddlePoint = AreaCalculatorMiddlePointAsHeight.CalculateAreaWithMiddlePointAsHeight();
+			Console.WriteLine();
+			Console.WriteLine($"The area for middle point as height is {areaMiddlePoint}");
+
+			Console.WriteLine();
+			Console.WriteLine("The exact area is 8.66666666667");
 		}
 
 
