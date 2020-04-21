@@ -5,7 +5,7 @@ namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorLeftPointAsHeight : AreaCalculator
 	{
-		static double[] CalculateStepValuesForLeftPoint(double numRectangles)
+		public override double[] CalculateStepValues(double numRectangles)
 		{
 			double[] stepValues = new double[(int)numRectangles];
 
@@ -16,11 +16,11 @@ namespace FunctionCalculations.Implementation1
 			return stepValues;
 		}
 		
-		public static double CalculateAreaWithLeftPointAsHeight()
+		public override double CalculateArea()
 		{
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			var width = Math.Abs(CalculateWidth(numRectangles));
-			var stepValues = CalculateStepValuesForLeftPoint(numRectangles);
+			var stepValues = CalculateStepValues(numRectangles);
 			var height = CalculateHeight(stepValues);
 			double[] areaOfEachRectangle = new double[(int)numRectangles];
 			var totalArea = 0.0;

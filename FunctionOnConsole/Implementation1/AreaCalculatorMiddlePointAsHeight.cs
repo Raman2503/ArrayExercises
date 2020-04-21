@@ -6,7 +6,7 @@ namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorMiddlePointAsHeight : AreaCalculator
 	{
-		static double[] CalculateStepValuesForMiddlePoint(double numRectangles)
+		public override double[] CalculateStepValues(double numRectangles)
 		{
 			double[] stepValues = new double[(int)numRectangles];
 
@@ -17,11 +17,11 @@ namespace FunctionCalculations.Implementation1
 			return stepValues;
 		}
 
-		public static double CalculateAreaWithMiddlePointAsHeight()
+		public override double CalculateArea()
 		{
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			var width = Math.Abs(CalculateWidth(numRectangles));
-			var stepValues = CalculateStepValuesForMiddlePoint(numRectangles);
+			var stepValues = CalculateStepValues(numRectangles);
 			var height = CalculateHeight(stepValues);
 			double[] areaOfEachRectangle = new double[(int)numRectangles];
 			var totalArea = 0.0;

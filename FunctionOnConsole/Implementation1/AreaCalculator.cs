@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace FunctionCalculations.Implementation1
 {
-	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	abstract class AreaCalculator
 	{
 		internal static double startValue = 1;
@@ -28,5 +27,9 @@ namespace FunctionCalculations.Implementation1
 
 			return height;
 		}
+
+		public abstract double[] CalculateStepValues(double numRectangles);
+
+		public abstract double CalculateArea();
 	}
 }
