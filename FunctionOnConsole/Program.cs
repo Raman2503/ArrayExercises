@@ -16,19 +16,19 @@ namespace FunctionCalculations
 		{
 			 double initialValue = 1;
 			 double endValue = 3;
-			 double step = 0.005;
+			 double step = 0.1;
 
 			var inputs = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x);
 			var square = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x * x);
 			var sin = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => Math.Sin(x));
-			
+
 			// Print inputs and function values on console
 			IPrinter consolePrinter = new ConsolePrinter();
-			consolePrinter.Print(inputs,square, sin);
+			consolePrinter.Print(inputs, square, sin);
 
 			// Save results to csv file
 			IPrinter csvPrinter = new CsvWriter();
-			csvPrinter.Print(inputs,square, sin);
+			csvPrinter.Print(inputs, square, sin);
 
 			//Calculate area under curve with left point of rectangle as height
 			AreaCalculatorLeftPointAsHeight leftPoint = new AreaCalculatorLeftPointAsHeight();
@@ -47,6 +47,12 @@ namespace FunctionCalculations
 			var areaMiddlePoint = middlePoint.CalculateArea();
 			Console.WriteLine();
 			Console.WriteLine($"The area for middle point as height is {areaMiddlePoint}");
+
+			//Calculate area under curve with trapezoids
+			AreaCalculatorTrapezoids trapezoids = new AreaCalculatorTrapezoids();
+			var areaTrapezoids = trapezoids.CalculateArea();
+			Console.WriteLine();
+			Console.WriteLine($"The area approximated with trapezoids is {areaTrapezoids}");
 		}
 
 

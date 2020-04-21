@@ -8,12 +8,12 @@ namespace FunctionCalculations.Implementation1
 	{
 		internal static double startValue = 1;
 		internal static double endValue = 3;
-		internal static double stepSize = 0.005;
+		internal static double stepSize = 0.00005;
 
 		public static double CalculateNumberOfRectangles()
 		{
 			var numRectangles = Math.Abs((startValue - endValue) / (stepSize));
-			return Math.Round(numRectangles);
+			return (int)numRectangles;
 		}
 		
 		public static double CalculateWidth(double numRectangle)

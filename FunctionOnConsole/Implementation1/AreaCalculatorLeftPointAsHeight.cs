@@ -19,6 +19,7 @@ namespace FunctionCalculations.Implementation1
 		public override double CalculateArea()
 		{
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
+
 			var width = Math.Abs(CalculateWidth(numRectangles));
 			var stepValues = CalculateStepValues(numRectangles);
 			var height = CalculateHeight(stepValues);
