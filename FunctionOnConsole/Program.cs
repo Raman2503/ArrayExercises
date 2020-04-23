@@ -53,6 +53,11 @@ namespace FunctionCalculations
 			var areaTrapezoids = trapezoids.CalculateArea();
 			Console.WriteLine();
 			Console.WriteLine($"The area approximated with trapezoids is {areaTrapezoids}");
+
+			//Print number of iterations performed for area calculation
+			var numRectangles = AreaCalculator.CalculateNumberOfRectangles();
+			Console.WriteLine();
+			Console.WriteLine($"Iteration count: {numRectangles}");
 		}
 
 
