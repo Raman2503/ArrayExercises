@@ -8,7 +8,7 @@ namespace FunctionCalculations.Implementation1
 	{
 		internal static double startValue = 1;
 		internal static double endValue = 3;
-		internal static double stepSize = 0.00005;
+		internal static double stepSize = 0.0001;
 
 		public static double CalculateNumberOfRectangles()
 		{
