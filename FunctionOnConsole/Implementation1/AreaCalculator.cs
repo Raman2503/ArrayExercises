@@ -28,8 +28,27 @@ namespace FunctionCalculations.Implementation1
 			return height;
 		}
 
-		public abstract double[] CalculateStepValues(double numRectangles);
+		public virtual double CalculateArea()
+		{
+			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
+			var width = Math.Abs(CalculateWidth(numRectangles));
+			var stepValues = CalculateStepValues(numRectangles);
+			var height = CalculateHeight(stepValues);
+			double[] areaOfEachRectangle = new double[(int)numRectangles];
+			var totalArea = 0.0;
 
-		public abstract double CalculateArea();
+			if (numRectangles != 0)
+			{
+				for (int i = 0; i < numRectangles; i++)
+				{
+					areaOfEachRectangle[i] = height[i] * width;
+
+					totalArea = totalArea + areaOfEachRectangle[i];
+				}
+			}
+			return totalArea;
+		}
+
+		public abstract double[] CalculateStepValues(double numRectangles);
 	}
 }

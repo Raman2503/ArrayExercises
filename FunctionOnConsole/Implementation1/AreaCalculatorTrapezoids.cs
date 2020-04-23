@@ -4,36 +4,17 @@ namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorTrapezoids : AreaCalculator
 	{
-		
+		AreaCalculatorLeftPointAsHeight leftPoint = new AreaCalculatorLeftPointAsHeight();
+
 		public override double[] CalculateStepValues(double numRectangles)
 		{
-			double[] stepValues = new double[(int)numRectangles];
-
-			for (int i = 0; i < numRectangles; i++)
-			{
-				stepValues[i] = startValue + i * stepSize;
-			}
-			return stepValues;
+			return leftPoint.CalculateStepValues(numRectangles);
 		}
 
 		public double CalculateAreaRectangles()
 		{
-			var areaRectangles = 0.0;
-			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
-			var width = Math.Abs(CalculateWidth(numRectangles));
-			var stepValues = CalculateStepValues(numRectangles);
-			var height = CalculateHeight(stepValues);
-			double[] areaOfEachRectangle = new double[(int)numRectangles];
+			var areaRectangles = leftPoint.CalculateArea();
 
-			if (numRectangles != 0)
-			{
-				for (int i = 0; i < numRectangles; i++)
-				{
-					areaOfEachRectangle[i] = height[i] * width;
-
-					areaRectangles = areaRectangles + areaOfEachRectangle[i];
-				}
-			}
 			return areaRectangles;
 		}
 
