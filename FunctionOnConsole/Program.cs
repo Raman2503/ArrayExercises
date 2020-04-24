@@ -18,6 +18,8 @@ namespace FunctionCalculations
 			 double endValue = 3;
 			 double step = 0.1;
 
+			InputValidation.ValidateStepSize(step, initialValue, endValue);
+
 			var inputs = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x);
 			var square = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x * x);
 			var sin = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => Math.Sin(x));

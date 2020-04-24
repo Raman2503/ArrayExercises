@@ -13,9 +13,10 @@ namespace FunctionCalculations.Implementation1
 		public static double CalculateNumberOfRectangles()
 		{
 			var numRectangles = Math.Abs((startValue - endValue) / (stepSize));
+
 			return (int)numRectangles;
 		}
-		
+
 		public static double CalculateWidth(double numRectangle)
 		{
 			return (endValue - startValue) / numRectangle;
@@ -30,6 +31,7 @@ namespace FunctionCalculations.Implementation1
 
 		public virtual double CalculateArea()
 		{
+			InputValidation.ValidateStepSize(stepSize, startValue, endValue);
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			var width = Math.Abs(CalculateWidth(numRectangles));
 			var stepValues = CalculateStepValues(numRectangles);
