@@ -13,7 +13,7 @@ namespace FunctionCalculations.Implementation1
 				throw new ArgumentException("Step value must not be zero");
 			}
 
-			else if(step > endValue - startValue )
+			if(step > endValue - startValue )
 			{
 				throw new ArgumentException("Step value must not exceed value range");
 			}

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FunctionCalculations.Implementation1;
+using System;
 using System.Collections.Generic;
-using FunctionCalculations.Implementation1;
 
 namespace FunctionCalculations
 {
@@ -8,15 +8,15 @@ namespace FunctionCalculations
 	{
 		static void Main()
 		{
-			 Implementation1();
+			Implementation1();
 			//Implementation2();
 		}
 
 		private static void Implementation1()
 		{
-			 double initialValue = 1;
-			 double endValue = 3;
-			 double step = 0.1;
+			double initialValue = 1;
+			double endValue = 3;
+			double step = 0.1;
 
 			InputValidation.ValidateStepSize(step, initialValue, endValue);
 
@@ -34,32 +34,41 @@ namespace FunctionCalculations
 
 			//Calculate area under curve with left point of rectangle as height
 			AreaCalculatorLeftPointAsHeight leftPoint = new AreaCalculatorLeftPointAsHeight();
-			var areaLeftPoint = leftPoint.CalculateArea();
-			Console.WriteLine();
-			Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
 
-			//Calculate area under curve with right point of rectangle as height
-			AreaCalculatorRightPointAsHeight rightPoint = new AreaCalculatorRightPointAsHeight();
-			var areaRightPoint = rightPoint.CalculateArea();
-			Console.WriteLine();
-			Console.WriteLine($"The area for right point as height is {areaRightPoint}");
+			try
+			{
+				var areaLeftPoint = leftPoint.CalculateArea();
+				Console.WriteLine();
+				Console.WriteLine($"The area for left point as height is {areaLeftPoint}");
 
-			//Calculate area under curve with middle point of rectangle as height
-			AreaCalculatorMiddlePointAsHeight middlePoint = new AreaCalculatorMiddlePointAsHeight();
-			var areaMiddlePoint = middlePoint.CalculateArea();
-			Console.WriteLine();
-			Console.WriteLine($"The area for middle point as height is {areaMiddlePoint}");
+				//Calculate area under curve with right point of rectangle as height
+				AreaCalculatorRightPointAsHeight rightPoint = new AreaCalculatorRightPointAsHeight();
+				var areaRightPoint = rightPoint.CalculateArea();
+				Console.WriteLine();
+				Console.WriteLine($"The area for right point as height is {areaRightPoint}");
 
-			//Calculate area under curve with trapezoids
-			AreaCalculatorTrapezoids trapezoids = new AreaCalculatorTrapezoids();
-			var areaTrapezoids = trapezoids.CalculateArea();
-			Console.WriteLine();
-			Console.WriteLine($"The area approximated with trapezoids is {areaTrapezoids}");
+				//Calculate area under curve with middle point of rectangle as height
+				AreaCalculatorMiddlePointAsHeight middlePoint = new AreaCalculatorMiddlePointAsHeight();
+				var areaMiddlePoint = middlePoint.CalculateArea();
+				Console.WriteLine();
+				Console.WriteLine($"The area for middle point as height is {areaMiddlePoint}");
 
-			//Print number of iterations performed for area calculation
-			var numRectangles = AreaCalculator.CalculateNumberOfRectangles();
-			Console.WriteLine();
-			Console.WriteLine($"Iteration count: {numRectangles}");
+				//Calculate area under curve with trapezoids
+				AreaCalculatorTrapezoids trapezoids = new AreaCalculatorTrapezoids();
+				var areaTrapezoids = trapezoids.CalculateArea();
+				Console.WriteLine();
+				Console.WriteLine($"The area approximated with trapezoids is {areaTrapezoids}");
+
+				//Print number of iterations performed for area calculation
+				var numRectangles = AreaCalculator.CalculateNumberOfRectangles();
+				Console.WriteLine();
+				Console.WriteLine($"Iteration count: {numRectangles}");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine();
+				Console.WriteLine(e.Message);
+			}
 		}
 
 
@@ -72,7 +81,7 @@ namespace FunctionCalculations
 		{
 			public void Print(Dictionary<string, List<double>> allValues)
 			{
-				
+
 			}
 		}
 
@@ -80,7 +89,7 @@ namespace FunctionCalculations
 		{
 			public void Print(Dictionary<string, List<double>> allValues)
 			{
-				
+
 			}
 		}
 

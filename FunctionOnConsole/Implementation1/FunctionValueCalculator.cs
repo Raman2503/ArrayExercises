@@ -9,9 +9,9 @@ namespace FunctionCalculations.Implementation1
 		{
 			double currentX = initialValue;
 			List<double> results = new List<double>();
-			var epsilon = Math.Pow(10,-8);
+			const double epsilon = 1e-8;
 
-			while (currentX - epsilon < endValue)
+			while (Math.Abs(currentX - epsilon) < endValue)
 			{
 				var fx = func(currentX);
 				results.Add(fx);
