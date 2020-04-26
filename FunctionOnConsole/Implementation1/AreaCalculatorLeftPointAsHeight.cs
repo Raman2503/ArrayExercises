@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace FunctionCalculations.Implementation1
+﻿namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorLeftPointAsHeight : AreaCalculator
 	{

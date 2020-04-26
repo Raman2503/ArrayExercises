@@ -4,6 +4,6 @@ namespace FunctionCalculations.Implementation1
 {
 	interface IPrinter
 	{
-		void Print(List<double> inputs, List<double> square, List<double> sin);
+		void Print(List<List<double>> inputs, List<List<double>> squares, List<List<double>> sin, double[] stepValues);
 	}
 }

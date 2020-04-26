@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+// ReSharper disable All
 
 namespace FunctionCalculations.Implementation1
 {
@@ -24,14 +24,13 @@ namespace FunctionCalculations.Implementation1
 
 		public static double[] CalculateHeight(double[] stepValues)
 		{
-			var height = FunctionValueCalculator.Calculate(stepValues.First(), stepValues.Last(), stepSize, x => x * x).ToArray();
+			var height = FunctionValueCalculator.CalculateHeight(stepValues.First(), stepValues.Last(), stepSize, x => x * x).ToArray();
 
 			return height;
 		}
 
 		public virtual double CalculateArea()
 		{
-			InputValidation.ValidateStepSize(stepSize, startValue, endValue);
 			var numRectangles = Math.Abs(CalculateNumberOfRectangles());
 			var width = Math.Abs(CalculateWidth(numRectangles));
 			var stepValues = CalculateStepValues(numRectangles);

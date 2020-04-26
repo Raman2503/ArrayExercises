@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace FunctionCalculations.Implementation1
 {
 	public static class InputValidation
 	{
-		public static void ValidateStepSize(double step, double startValue, double endValue)
+		public static void ValidateStepSize(double[] stepFunctionValue, double initialFunctionValue, double finalFunctionValue, double stepAreaCalculator)
 		{
-			if(step == 0)
+			if (stepFunctionValue.Contains(0) || stepAreaCalculator == 0)
 			{
 				throw new ArgumentException("Step value must not be zero");
 			}
 
-			if(step > endValue - startValue )
+			if (stepFunctionValue.Max() > finalFunctionValue - initialFunctionValue)
 			{
 				throw new ArgumentException("Step value must not exceed value range");
 			}

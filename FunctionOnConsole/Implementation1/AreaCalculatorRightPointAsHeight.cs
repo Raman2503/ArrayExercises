@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace FunctionCalculations.Implementation1
+﻿namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorRightPointAsHeight : AreaCalculator
 	{
@@ -11,7 +8,7 @@ namespace FunctionCalculations.Implementation1
 
 			for (int i = 0; i < numRectangles; i++)
 			{
-				stepValues[i] = (startValue+stepSize) + i * stepSize;
+				stepValues[i] = (startValue + stepSize) + i * stepSize;
 			}
 			return stepValues;
 		}

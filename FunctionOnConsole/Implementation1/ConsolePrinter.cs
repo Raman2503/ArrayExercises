@@ -3,20 +3,35 @@ using System.Collections.Generic;
 
 namespace FunctionCalculations.Implementation1
 {
-	public class ConsolePrinter: IPrinter
+	public class ConsolePrinter : IPrinter
 	{
-		public void Print(List<double> inputs, List<double> square, List<double> sin)
+		public void Print(List<List<double>> inputs, List<List<double>> squares, List<List<double>> sin,
+			double[] stepValues)
 		{
-			string xlabel = "x";
-			string y1label = "x^2";
-			string y2label = "sin(x)";
+			string xlabel = "X";
+			string ySquares = "X^2";
+			string ySin = "sin(X)";
 
-			Console.WriteLine($"{xlabel.PadLeft(10)} {y1label.PadLeft(10)} {y2label.PadLeft(10)}");
-			Console.WriteLine("-------------------------------------");
-			for (int i = 0; i < inputs.Count; i++)
+			var stepCount = 0;
+
+			foreach (var input in inputs)
 			{
-				Console.WriteLine($"{inputs[i].ToString("F4").PadLeft(10)} {square[i].ToString("F4").PadLeft(10)} {sin[i].ToString("F6").PadLeft(10)}");
+				Console.WriteLine($"Step Size: {stepValues[stepCount]}");
+				Console.WriteLine("---------------------");
+				Console.WriteLine($"{xlabel.PadLeft(5)} {ySquares.PadLeft(8)} {ySin.PadLeft(8)}");
+
+				for (int i = 0; i < input.Count; i++)
+				{
+					Console.WriteLine($"{input[i].ToString("F3").PadLeft(5)} " +
+									  $"{squares[stepCount][i].ToString("F3").PadLeft(8)}" +
+									  $"{sin[stepCount][i].ToString("F3").PadLeft(8)}");
+				}
+
+				Console.WriteLine();
+
+				stepCount++;
 			}
 		}
 	}
 }
+

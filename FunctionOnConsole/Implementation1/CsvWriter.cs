@@ -3,9 +3,9 @@ using System.IO;
 
 namespace FunctionCalculations.Implementation1
 {
-	public class CsvWriter:IPrinter
+	public class CsvWriter : IPrinter
 	{
-		 public void Print(List<double> inputs, List<double> squareResults, List<double> sinResults)
+		public void Print(List<List<double>> inputs, List<List<double>> squares, List<List<double>> sinResults, double[] stepValues)
 		{
 			var csvFile = "Results.csv";
 
@@ -17,7 +17,7 @@ namespace FunctionCalculations.Implementation1
 				file.WriteLine(
 					"{0};{1};{2}",
 					inputs[i],
-					squareResults[i],
+					squares[i],
 					sinResults[i]
 				);
 			}

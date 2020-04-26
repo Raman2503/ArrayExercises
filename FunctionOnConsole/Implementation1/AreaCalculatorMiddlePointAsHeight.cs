@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FunctionCalculations.Implementation1
+﻿namespace FunctionCalculations.Implementation1
 {
 	class AreaCalculatorMiddlePointAsHeight : AreaCalculator
 	{

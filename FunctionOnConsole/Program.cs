@@ -16,21 +16,25 @@ namespace FunctionCalculations
 		{
 			double initialValue = 1;
 			double endValue = 3;
-			double step = 0.1;
+			double[] stepsFunctionCalculator = { 0.1, 0.2, 0.5, 1 };
 
-			InputValidation.ValidateStepSize(step, initialValue, endValue);
-
-			var inputs = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x);
-			var square = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => x * x);
-			var sin = FunctionValueCalculator.Calculate(initialValue, endValue, step, x => Math.Sin(x));
+			var inputs = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => x);
+			var square = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => x * x);
+			var sin = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => Math.Sin(x));
 
 			// Print inputs and function values on console
 			IPrinter consolePrinter = new ConsolePrinter();
-			consolePrinter.Print(inputs, square, sin);
+			consolePrinter.Print(inputs, square, sin, stepsFunctionCalculator);
 
-			// Save results to csv file
-			IPrinter csvPrinter = new CsvWriter();
-			csvPrinter.Print(inputs, square, sin);
+			//// Save results to csv file
+			//IPrinter csvPrinter = new CsvWriter();
+			//csvPrinter.Print(inputs, square, sin, stepsFunctionCalculator);
+
+			var stepAreaCalculator = AreaCalculator.stepSize;
+
+			//Validate step Values for function value calculation and area calculation as well as starting and
+			// end value.
+			InputValidation.ValidateStepSize(stepsFunctionCalculator, initialValue, endValue, stepAreaCalculator);
 
 			//Calculate area under curve with left point of rectangle as height
 			AreaCalculatorLeftPointAsHeight leftPoint = new AreaCalculatorLeftPointAsHeight();

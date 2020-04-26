@@ -34,7 +34,7 @@ namespace FunctionCalculations.Implementation1
 			{
 				for (int i = 0; i < numRectangles; i++)
 				{
-					areaOfEachTriangle[i] = 0.5*width*(heightRightpoint[i]-heightLeftPoint[i]);
+					areaOfEachTriangle[i] = 0.5 * width * (heightRightpoint[i] - heightLeftPoint[i]);
 
 					areaTriangles = areaTriangles + areaOfEachTriangle[i];
 				}
