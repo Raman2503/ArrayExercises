@@ -1,6 +1,5 @@
 ﻿using FunctionCalculations.Implementation1;
 using System;
-using System.Collections.Generic;
 
 namespace FunctionCalculations
 {
@@ -22,13 +21,13 @@ namespace FunctionCalculations
 			var square = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => x * x);
 			var sin = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => Math.Sin(x));
 
-			// Print inputs and function values on console
+			// Print inputs and function values on console for all step sizes
 			IPrinter consolePrinter = new ConsolePrinter();
 			consolePrinter.Print(inputs, square, sin, stepsFunctionCalculator);
 
-			//// Save results to csv file
-			//IPrinter csvPrinter = new CsvWriter();
-			//csvPrinter.Print(inputs, square, sin, stepsFunctionCalculator);
+			// Save results to csv file
+			IPrinter csvPrinter = new CsvWriter();
+			csvPrinter.Print(inputs, square, sin, stepsFunctionCalculator);
 
 			var stepAreaCalculator = AreaCalculator.stepSize;
 
@@ -76,11 +75,14 @@ namespace FunctionCalculations
 		}
 
 
+/*
 		interface IPrinter2
 		{
 			void Print(Dictionary<string, List<double>> allValues);
 		}
+*/
 
+/*
 		private class ConsolePrinter2 : IPrinter2
 		{
 			public void Print(Dictionary<string, List<double>> allValues)
@@ -88,17 +90,10 @@ namespace FunctionCalculations
 
 			}
 		}
-
-		private class CsvPrinter2 : IPrinter2
-		{
-			public void Print(Dictionary<string, List<double>> allValues)
-			{
-
-			}
-		}
+*/
 
 
-
+/*
 		private static void Implementation2()
 		{
 			double initialValue = -2;
@@ -130,7 +125,9 @@ namespace FunctionCalculations
 			//Console.WriteLine();
 			//Console.WriteLine($"The area for right point as height is {areaRightPoint}");
 		}
+*/
 
+/*
 		private static List<double> CalculateValues(in double initialValue, in double endValue, in double step, Func<double, double> func)
 		{
 			double currentX = initialValue;
@@ -145,5 +142,6 @@ namespace FunctionCalculations
 
 			return results;
 		}
+*/
 	}
 }

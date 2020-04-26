@@ -28,7 +28,6 @@ namespace FunctionCalculations.Implementation1
 				}
 
 				Console.WriteLine();
-
 				stepCount++;
 			}
 		}

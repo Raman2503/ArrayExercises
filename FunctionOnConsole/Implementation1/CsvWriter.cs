@@ -10,16 +10,25 @@ namespace FunctionCalculations.Implementation1
 			var csvFile = "Results.csv";
 
 			using var file = new StreamWriter(csvFile);
-			file.WriteLine("x;x^2;sin(x)");
 
-			for (int i = 0; i < inputs.Count; i++)
+			var stepCount = 0;
+
+			foreach (var input in inputs)
 			{
-				file.WriteLine(
-					"{0};{1};{2}",
-					inputs[i],
-					squares[i],
-					sinResults[i]
-				);
+				file.WriteLine($"Step Size: {stepValues[stepCount]}");
+				file.WriteLine("x;x^2;sin(x)");
+
+				for (int i = 0; i < input.Count; i++)
+				{
+					file.WriteLine(
+						"{0};{1};{2}",
+						input[i],
+						squares[stepCount][i],
+						sinResults[stepCount][i]
+					);
+				}
+				file.WriteLine();
+				stepCount++;
 			}
 		}
 	}
