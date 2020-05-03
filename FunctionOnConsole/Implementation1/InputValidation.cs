@@ -7,9 +7,14 @@ namespace FunctionCalculations.Implementation1
 	{
 		public static void ValidateStepSize(double[] stepFunctionValue, double initialFunctionValue, double finalFunctionValue, double stepAreaCalculator)
 		{
-			if (stepFunctionValue.Contains(0) || stepAreaCalculator == 0)
+			const double epsilon = 1e-16;
+
+			foreach (var stepFunction in stepFunctionValue)
 			{
-				throw new ArgumentException("Step value must not be zero");
+				if (stepFunction < epsilon || stepAreaCalculator < epsilon)
+				{
+					throw new ArgumentException("Step value must not be zero");
+				}
 			}
 
 			if (stepFunctionValue.Max() > finalFunctionValue - initialFunctionValue)

@@ -8,8 +8,8 @@ namespace FillTrianglesWithZeros
 	{
 		static void Main(string[] args)
 		{
-			int rows = 5;
-			int columns = 4;
+			int rows = 3;
+			int columns = 1;
 
 
 			Console.WriteLine("Random Array");
