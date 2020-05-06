@@ -1,4 +1,5 @@
 ﻿using FunctionCalculations.Implementation1;
+using NLog;
 using System;
 
 namespace FunctionCalculations
@@ -11,6 +12,8 @@ namespace FunctionCalculations
 			//Implementation2();
 		}
 
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
 		private static void Implementation1()
 		{
 			double initialValue = 1;
@@ -20,9 +23,11 @@ namespace FunctionCalculations
 			//Validate step Values for function value calculation and area calculation as well as starting and
 			// end value.
 			var stepAreaCalculator = AreaCalculator.stepSize;
+			//LogManager.DisableLogging();
 
 			try
 			{
+				Logger.Info("Starting calculation");
 				InputValidation.ValidateStepSize(stepsFunctionCalculator, initialValue, endValue, stepAreaCalculator);
 
 				var inputs = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => x);
@@ -39,6 +44,7 @@ namespace FunctionCalculations
 			}
 			catch (Exception)
 			{
+				Logger.Error("Step size was zero. Check inputs");
 				Console.WriteLine();
 				throw;
 			}
@@ -72,6 +78,8 @@ namespace FunctionCalculations
 			var numRectangles = AreaCalculator.CalculateNumberOfRectangles();
 			Console.WriteLine();
 			Console.WriteLine($"Iteration count: {numRectangles}");
+
+			Logger.Info("Calculation was succesful");
 		}
 
 
