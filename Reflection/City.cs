@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reflection
 {
+	[My]
 	public class City
 	{
 		public double Inhabitants { get; set; } = 1e+6;

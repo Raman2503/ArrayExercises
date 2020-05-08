@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reflection
 {
+	[My]
 	public class Aircraft
 	{
 		private double GrossWeight { get; set; }
@@ -23,6 +24,11 @@ namespace Reflection
 			Console.WriteLine($"Mach {mach}");
 		}
 
+		public void PrintAltitude()
+		{
+			var alt = 9000;
 
+			Console.WriteLine(alt);
+		}
 	}
 }
