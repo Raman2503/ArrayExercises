@@ -12,7 +12,7 @@ namespace FunctionCalculations
 			//Implementation2();
 		}
 
-		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger ProgramLogger = LogManager.GetLogger("ProgramLogger");
 
 		private static void Implementation1()
 		{
@@ -27,7 +27,7 @@ namespace FunctionCalculations
 
 			try
 			{
-				Logger.Info("Starting calculation");
+				ProgramLogger.Info("Starting Function Calculation");
 				InputValidation.ValidateStepSize(stepsFunctionCalculator, initialValue, endValue, stepAreaCalculator);
 
 				var inputs = FunctionValueCalculator.CalculateFunctionValues(initialValue, endValue, stepsFunctionCalculator, x => x);
@@ -41,16 +41,20 @@ namespace FunctionCalculations
 				// Save results to csv file
 				IPrinter csvPrinter = new CsvWriter();
 				csvPrinter.Print(inputs, square, sin, stepsFunctionCalculator);
+
+				ProgramLogger.Info("Function Calculation was successful");
 			}
 			catch (Exception)
 			{
-				Logger.Error("Step size was zero. Check inputs");
+				ProgramLogger.Error("Step size was zero. Check inputs");
 				Console.WriteLine();
 				throw;
 			}
 
 			//Calculate area under curve with left point of rectangle as height
 			AreaCalculatorLeftPointAsHeight leftPoint = new AreaCalculatorLeftPointAsHeight();
+
+			ProgramLogger.Info("Starting Area Calculator");
 
 			var areaLeftPoint = leftPoint.CalculateArea();
 			Console.WriteLine();
@@ -79,7 +83,7 @@ namespace FunctionCalculations
 			Console.WriteLine();
 			Console.WriteLine($"Iteration count: {numRectangles}");
 
-			Logger.Info("Calculation was succesful");
+			ProgramLogger.Info("Area Calculation was successful");
 		}
 
 

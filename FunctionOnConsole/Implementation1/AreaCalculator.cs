@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Linq;
+
 // ReSharper disable All
 
 namespace FunctionCalculations.Implementation1
@@ -10,12 +12,17 @@ namespace FunctionCalculations.Implementation1
 		internal static double endValue = 3;
 		internal static double stepSize = 0.0001;
 
+		private static readonly Logger AreaCalculatorLogger = LogManager.GetLogger("AreaCalculatorLogger");
+
+		//LogManager.DisableLogging();
+
 		public static double CalculateNumberOfRectangles()
 		{
 			var numRectangles = Math.Abs((startValue - endValue) / (stepSize));
-
 			return (int)numRectangles;
 		}
+
+
 
 		public static double CalculateWidth(double numRectangle)
 		{
@@ -35,7 +42,14 @@ namespace FunctionCalculations.Implementation1
 			var width = Math.Abs(CalculateWidth(numRectangles));
 			var stepValues = CalculateStepValues(numRectangles);
 			var height = CalculateHeight(stepValues);
+
+			foreach (var h in height)
+			{
+				AreaCalculatorLogger.Info(h.ToString);
+			}
+
 			double[] areaOfEachRectangle = new double[(int)numRectangles];
+
 			var totalArea = 0.0;
 
 			if (numRectangles != 0)
@@ -47,6 +61,9 @@ namespace FunctionCalculations.Implementation1
 					totalArea = totalArea + areaOfEachRectangle[i];
 				}
 			}
+
+			AreaCalculatorLogger.Info($"Total area: {totalArea}");
+
 			return totalArea;
 		}
 
