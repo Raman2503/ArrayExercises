@@ -3,35 +3,42 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SortArray
 {
-	[SuppressMessage("ReSharper", "UnusedParameter.Local")]
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			int columns = 6;
+			int arrayLength = 6;
 			
-			// Create and print random 1D array
-			Console.WriteLine("Random 1D Array");
+			// Create and print random 1D array of integers
+			Console.WriteLine("Random Array of Integers");
 
-			var rndVector = ArrayFactory.Create1DArray(columns);
+			var intArray = ArrayFactory.CreateIntArray(arrayLength);
+			intArray.PrintArray();
 
-			rndVector.PrintArray();
+			// Create and print random 1D array of doubles
+			Console.WriteLine("Random Array of Doubles");
 
-			Console.WriteLine();
-
-			// Sort array and print sorted array on console
-			Console.WriteLine("Sorted Array");
-			var sortedArray = rndVector.Sort();
-
-			sortedArray.PrintArray();
-
-			// Find random value in sorted array and print its index
-			int randomNumber = 3;
-
-			var idx = sortedArray.FindIndex(randomNumber);
+			var doubleArray = ArrayFactory.CreateDoubleArray(arrayLength);
+			doubleArray.PrintArray();
 			
-			Console.WriteLine();
-			Console.WriteLine($"Number {randomNumber} is at index {idx}");
+			// Sort array of integers and print sorted array on console
+			Console.WriteLine("Sorted Array of Integers");
+			var sortedIntArray = intArray.Sort();
+			sortedIntArray.PrintArray();
+
+			// Sort array of doubles and print sorted array on console
+			Console.WriteLine("Sorted Array of Doubles");
+			var sortedDoubleArray = doubleArray.Sort();
+			sortedDoubleArray.PrintArray();
+
+			// Find random value in sorted arrays and print its index
+			var randomNumber = 3;
+
+			var intIdx = sortedIntArray.FindIndex(randomNumber);
+			var doubleIdx = sortedDoubleArray.FindIndex(randomNumber);
+			
+			Console.WriteLine($"Number {randomNumber} in array of integers is at index {intIdx}");
+			Console.WriteLine($"Number {randomNumber} in array of doubles is at index {doubleIdx}");
 		}
 	}
 }

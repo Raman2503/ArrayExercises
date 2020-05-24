@@ -1,18 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SortArray
 {
-	public static class ArrayExtensions
+	public static class ArrayExtensions 
 	{
-		public static int [] Sort(this int [] vector)
+		/// <summary>
+		/// Sorts items in random array in ascending order.
+		/// </summary>
+		/// <param name="vector"></param>
+		/// <returns></returns>
+		public static T [] Sort<T>(this T [] vector) where T: IComparable<T>
 		{
 			for (int outerIndex = 0; outerIndex < vector.Length; outerIndex++)
 			{
 				for (int innerIndex = 0; innerIndex < vector.Length - outerIndex - 1; innerIndex++)
 				{
-					if (vector[innerIndex] > vector[innerIndex + 1])
+					if (vector[innerIndex].CompareTo(vector[innerIndex + 1]) > 0)
 					{
-						int element = vector[innerIndex];
+						T element = vector[innerIndex];
 						vector[innerIndex] = vector[innerIndex + 1];
 						vector[innerIndex + 1] = element;
 					}
@@ -21,7 +27,13 @@ namespace SortArray
 			return vector;
 		}
 
-		public static int FindIndex(this int[] vector, int number)
+		/// <summary>
+		/// Find index of an item in the array using Binary search algorithm.
+		/// </summary>
+		/// <param name="vector"></param>
+		/// <param name="number"></param>
+		/// <returns></returns>
+		public static int FindIndex<T>(this T[] vector, T number) where T : IComparable<T>
 		{
 			int maxIndex = vector.Length - 1;
 			int minIndex = 0;
@@ -31,17 +43,17 @@ namespace SortArray
 			{
 				// Check if number is on the left side. If yes, new maxIndex is defined.
 				int middleIndex = maxIndex + minIndex / 2;
-				if (number < vector[middleIndex])
+				if (number.CompareTo(vector[middleIndex]) < 0)
 				{
 					maxIndex = middleIndex - 1;
 				}
 				// Check if number is on the right side. If yes, new minIndex is defined.
-				else if (number > vector[middleIndex])
+				else if (number.CompareTo(vector[middleIndex]) >  0)
 				{
 					minIndex = middleIndex + 1;
 				}
 				// Check if number matches number in the middle of array
-				else if (number == vector[middleIndex])
+				else if (number.Equals(vector[middleIndex]))
 				{
 					return middleIndex;
 				}
@@ -54,13 +66,13 @@ namespace SortArray
 		/// This class contains the method for printing 1D arrays on the console.
 		/// </summary>
 		/// <param name="array"></param>
-		public static void PrintArray(this int[] array)
+		public static void PrintArray<T>(this T[] array)
 
 		{
 			int columns = array.Length;
 			for (int j = 0; j < columns; j++)
 			{
-				Console.Write(array[j].ToString().PadLeft(5));
+				Console.WriteLine($"{array[j].ToString().PadLeft(5)} \t");
 			}
 			Console.WriteLine();
 		}

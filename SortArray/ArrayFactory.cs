@@ -5,7 +5,7 @@ namespace SortArray
 {
 	public class ArrayFactory
 	{
-		public static int[] Create1DArray(int columns)
+		public static int[] CreateIntArray(int columns)
 		{
 			Random rand = new Random();
 
@@ -15,6 +15,20 @@ namespace SortArray
 			{
 				vector[j] = rand.Next(10);
 			}
+			return vector;
+		}
+
+		public static double[] CreateDoubleArray(int columns)
+		{
+			Random rand = new Random();
+
+			double[] vector = new double[columns];
+
+			for (int j = 0; j < columns; j++)
+			{
+				vector[j] = rand.NextDouble();
+			}
+			
 			return vector;
 		}
 	}
