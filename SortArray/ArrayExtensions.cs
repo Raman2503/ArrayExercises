@@ -72,7 +72,7 @@ namespace SortArray
 			int columns = array.Length;
 			for (int j = 0; j < columns; j++)
 			{
-				Console.WriteLine($"{array[j].ToString().PadLeft(5)} \t");
+				Console.WriteLine($"{array[j].ToString().PadLeft(0)} \t");
 			}
 			Console.WriteLine();
 		}

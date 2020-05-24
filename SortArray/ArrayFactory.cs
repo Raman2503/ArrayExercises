@@ -31,5 +31,12 @@ namespace SortArray
 			
 			return vector;
 		}
+
+		public static string[] CreateStringArray()
+		{
+			string[] vector = {"Anna", "Brad", "Valery", "Paul", "Charlotte", "Dylan"}; 
+
+			return vector;
+		}
 	}
 }
