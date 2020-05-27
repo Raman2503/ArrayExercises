@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SortArray
 {
@@ -47,8 +49,6 @@ namespace SortArray
 			var stringIdx = sortedStringArray.FindIndex(randomString);
 
 
-			///var stringIdx = sortedStringArray.FindIndex(randomString, new );
-
 			Console.WriteLine($"Number {randomNumber} in array of integers is at index {intIdx}");
 			Console.WriteLine($"Number {randomNumber} in array of doubles is at index {doubleIdx}");
 			Console.WriteLine($"String {randomString} in array of Strings is at index {stringIdx}");
@@ -66,12 +66,29 @@ namespace SortArray
 				new Address("Wieland Road", 42)
 			};
 
-			Console.WriteLine("List of Addresses");
+			Console.WriteLine("List of Addresses:");
 
 			foreach (var address in adresses)
 			{
-				Console.WriteLine("{0}, {1}", address.Street, address.Number );
+				Console.WriteLine("{0}, {1}", address.Street, address.Number);
 			}
+
+			Console.WriteLine();
+			var byStreetComparer = new CompareByStreetComparer();
+			var addressesByStreet = ArrayExtensions.Sort(adresses.ToArray(), byStreetComparer);
+
+			Console.WriteLine("Addresses Sorted by Street:");
+			foreach (var address in addressesByStreet)
+			{
+				Console.WriteLine("{0}, {1}", address.Street, address.Number);
+			}
+
+			var addressToFind = adresses[2];
+
+			var addressByStreetIdx = addressesByStreet.ToArray().FindIndex(addressToFind, byStreetComparer);
+			Console.WriteLine();
+
+			Console.WriteLine($"Address to be found by street is at index {addressByStreetIdx}");
 		}
 	}
 }

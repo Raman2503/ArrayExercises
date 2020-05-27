@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace SortArray
@@ -10,16 +9,14 @@ namespace SortArray
 
 		public int Number { get; set; }
 
-		public Address (string street, int number)
+		public Address(string street, int number)
 		{
 			Street = street;
 			Number = number;
 		}
 
-
 		public int CompareTo(Address other)
 		{
-			// Am Bahnhof Westend 13, Rotherstraße 20
 			var compareResultStreet = this.Street.CompareTo(other.Street);
 			if (compareResultStreet != 0)
 				return compareResultStreet;
@@ -29,7 +26,15 @@ namespace SortArray
 
 		public bool Equals(Address other)
 		{
-			throw new NotImplementedException();
+			if (this.Street == other.Street)
+			{
+				return true;
+			}
+
+			else
+			{
+				return false;
+			}
 		}
 	}
 
@@ -37,7 +42,17 @@ namespace SortArray
 	{
 		public int Compare(Address a1, Address a2)
 		{
-			var address1 = a1.Street;
+			if (a2.Street != null && a1.Street != null)
+				if (a1.Street.CompareTo(a2.Street) > 0)
+				{
+					return 1;
+				}
+				
+				else if (a1.Street.CompareTo(a2.Street) < 0)
+				{
+					return -1;
+				}
+
 			return 0;
 		}
 	}

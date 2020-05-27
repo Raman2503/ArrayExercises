@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace SortArray
@@ -32,9 +31,9 @@ namespace SortArray
 		/// Find index of an item in the array using Binary search algorithm.
 		/// </summary>
 		/// <param name="vector"></param>
-		/// <param name="number"></param>
+		/// <param name="element"></param>
 		/// <returns></returns>
-		public static int FindIndex<T>(this T[] vector, T number) where T : IComparable<T>
+		public static int FindIndex<T>(this T[] vector, T element) where T : IComparable<T>
 		{
 			int maxIndex = vector.Length - 1;
 			int minIndex = 0;
@@ -42,24 +41,24 @@ namespace SortArray
 
 			while (minIndex <= maxIndex)
 			{
-				// Check if number is on the left side. If yes, new maxIndex is defined.
+				// Check if element is on the left side. If yes, new maxIndex is defined.
 				int middleIndex = maxIndex + minIndex / 2;
-				if (number.CompareTo(vector[middleIndex]) < 0)
+				if (element.CompareTo(vector[middleIndex]) < 0)
 				{
 					maxIndex = middleIndex - 1;
 				}
-				// Check if number is on the right side. If yes, new minIndex is defined.
-				else if (number.CompareTo(vector[middleIndex]) >  0)
+				// Check if element is on the right side. If yes, new minIndex is defined.
+				else if (element.CompareTo(vector[middleIndex]) >  0)
 				{
 					minIndex = middleIndex + 1;
 				}
-				// Check if number matches number in the middle of array
-				else if (number.Equals(vector[middleIndex]))
+				// Check if element matches element in the middle of array
+				else if (element.Equals(vector[middleIndex]))
 				{
 					return middleIndex;
 				}
 			}
-			// If number was not found in array return index -1
+			// If element was not found in array return index -1
 			return indexNotFound;
 		}
 
@@ -81,7 +80,7 @@ namespace SortArray
 			return vector;
 		}
 
-		public static int FindIndex<T>(this T[] vector, T number, IComparer<T> comparer) where T : IComparable<T>
+		public static int FindIndex<T>(this T[] vector, T element, IComparer<T> comparer) 
 		{
 			int maxIndex = vector.Length - 1;
 			int minIndex = 0;
@@ -89,24 +88,24 @@ namespace SortArray
 
 			while (minIndex <= maxIndex)
 			{
-				// Check if number is on the left side. If yes, new maxIndex is defined.
+				// Check if element is on the left side. If yes, new maxIndex is defined.
 				int middleIndex = maxIndex + minIndex / 2;
-				if(comparer.Compare(number,vector[middleIndex]) < 0)
+				if(comparer.Compare(element,vector[middleIndex]) < 0)
 				{
 					maxIndex = middleIndex - 1;
 				}
-				// Check if number is on the right side. If yes, new minIndex is defined.
-				else if (comparer.Compare(number, vector[middleIndex]) > 0)
+				// Check if element is on the right side. If yes, new minIndex is defined.
+				else if (comparer.Compare(element, vector[middleIndex]) > 0)
 				{
 					minIndex = middleIndex + 1;
 				}
-				// Check if number matches number in the middle of array
-				else if (comparer.Compare(number, vector[middleIndex]) == 0)
+				// Check if element matches element in the middle of array
+				else if (comparer.Compare(element, vector[middleIndex]) == 0)
 				{
 					return middleIndex;
 				}
 			}
-			// If number was not found in array return index -1
+			// If element was not found in array return index -1
 			return indexNotFound;
 		}
 
