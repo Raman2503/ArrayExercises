@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SortArray
 {
@@ -45,9 +46,32 @@ namespace SortArray
 			var doubleIdx = sortedDoubleArray.FindIndex(randomNumber);
 			var stringIdx = sortedStringArray.FindIndex(randomString);
 
+
+			///var stringIdx = sortedStringArray.FindIndex(randomString, new );
+
 			Console.WriteLine($"Number {randomNumber} in array of integers is at index {intIdx}");
 			Console.WriteLine($"Number {randomNumber} in array of doubles is at index {doubleIdx}");
 			Console.WriteLine($"String {randomString} in array of Strings is at index {stringIdx}");
+			Console.WriteLine("-------------------------------------------------");
+
+
+			// Create list of addresses and print them on console.
+			List<Address> adresses = new List<Address>()
+			{
+				new Address("Abbey Road", 10),
+				new Address("Liverpool Street", 12),
+				new Address("Faraday Road", 58),
+				new Address("Am Bahnhof Westend", 13),
+				new Address("Rotherstraße", 20),
+				new Address("Wieland Road", 42)
+			};
+
+			Console.WriteLine("List of Addresses");
+
+			foreach (var address in adresses)
+			{
+				Console.WriteLine("{0}, {1}", address.Street, address.Number );
+			}
 		}
 	}
 }
