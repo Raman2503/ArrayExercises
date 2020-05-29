@@ -63,7 +63,10 @@ namespace SortArray
 				new Address("Faraday Road", 58),
 				new Address("Am Bahnhof Westend", 13),
 				new Address("Rotherstraße", 20),
-				new Address("Wieland Road", 42)
+				new Address("Wieland Road", 42),
+				new Address("Faraday Road", 62),
+				new Address("Am Bahnhof Westend", 2),
+				new Address("Abbey Road", 10),
 			};
 
 			Console.WriteLine("List of Addresses:");
@@ -75,20 +78,70 @@ namespace SortArray
 
 			Console.WriteLine();
 			var byStreetComparer = new CompareByStreetComparer();
-			var addressesByStreet = ArrayExtensions.Sort(adresses.ToArray(), byStreetComparer);
 
+			//var addressesByStreet = ArrayExtensions.Sort(adresses.ToArray(), byStreetComparer);
+			adresses.Sort();
+			
 			Console.WriteLine("Addresses Sorted by Street:");
-			foreach (var address in addressesByStreet)
+			foreach (var address in adresses)
 			{
 				Console.WriteLine("{0}, {1}", address.Street, address.Number);
 			}
 
-			var addressToFind = adresses[2];
+			Console.WriteLine();
 
-			var addressByStreetIdx = addressesByStreet.ToArray().FindIndex(addressToFind, byStreetComparer);
+			Console.WriteLine("Addresses in Hash Set:");
+			HashSet<Address> addressesSet = new HashSet<Address>(adresses);
+			foreach (var address in addressesSet)
+			{
+				Console.WriteLine("{0}, {1}", address.Street, address.Number);
+			}
+
+			var addressToFind = new Address("Wieland Road", 42);
+
+			var addressByStreetIdx = adresses.ToArray().FindIndex(addressToFind, byStreetComparer);
 			Console.WriteLine();
 
 			Console.WriteLine($"Address to be found by street is at index {addressByStreetIdx}");
+			Console.WriteLine();
+
+			List<double> doubles = new List<double>()
+			{
+				242.24698887,
+				242.24706745,
+				260.2544888,
+				269.2021
+			};
+
+			var doubleComparer = new DoubleComparer(2);
+			var numberSet = new HashSet<double>(doubles, doubleComparer);
+
+			foreach (var number in numberSet)
+			{
+				Console.WriteLine(number);
+			}
+		}
+
+		class DoubleComparer : IEqualityComparer<double>
+		{
+			int Precision { get; }
+			internal DoubleComparer(int precision)
+			{
+				Precision = precision;
+			}
+
+			public bool Equals(double x, double y)
+			{
+				var roundedX = Math.Round(x, Precision);
+				var roundedY = Math.Round(y, Precision);
+
+				return roundedX == roundedY;
+			}
+
+			public int GetHashCode(double obj)
+			{
+				return Math.Round(obj, Precision).GetHashCode();
+			}
 		}
 	}
 }
