@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SortArray
+namespace SortingSearchingAlgorithms
 {
 	internal class Address : IComparable<Address>, IEquatable<Address>
 	{
 		public string Street { get; set; }
 
 		public int Number { get; set; }
+
+		public Address()
+		{
+				// Used for reflection
+		}
 
 		public Address(string street, int number)
 		{

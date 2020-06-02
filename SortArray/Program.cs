@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SortArray;
 
 namespace SortingSearchingAlgorithms
 {
@@ -83,7 +82,7 @@ namespace SortingSearchingAlgorithms
 			var addressesByStreet = ArrayExtensions.Sort(addresses.ToArray(), byStreetComparer);
 
 			//addresses.Sort();
-			
+
 			Console.WriteLine("Addresses Sorted by Street:");
 			foreach (var address in addressesByStreet)
 			{
@@ -130,13 +129,13 @@ namespace SortingSearchingAlgorithms
 			Console.WriteLine("Min By address:");
 			Console.WriteLine("{0},{1}", minAddress.Street, minAddress.Number);
 
-			var maxAdress = addresses.ToArray().MaxBy(addresses.ToArray().First());
+			var maxAddress = addresses.ToArray().MaxBy(addresses.ToArray().First());
 			Console.WriteLine("Max By address:");
-			Console.WriteLine("{0},{1}", maxAdress.Street, maxAdress.Number);
+			Console.WriteLine("{0},{1}", maxAddress.Street, maxAddress.Number);
 			Console.WriteLine("------------------------------------------------------------");
 
 			int N = 3;
-			var list = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9};
+			var list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 			var result = list.ToArray().TakeEvery(N);
 
@@ -144,6 +143,24 @@ namespace SortingSearchingAlgorithms
 			foreach (var number in result)
 			{
 				Console.WriteLine(number);
+			}
+
+			Console.WriteLine("------------------------------------------------------------");
+			Console.WriteLine("All constructors of Address.cs");
+
+			var addr = typeof(Address);
+			PrintAllConstructors(addr);
+			Console.WriteLine();
+
+		}
+
+		private static void PrintAllConstructors(Type t)
+		{
+			var constructors = t.GetConstructors();
+
+			foreach (var c in constructors)
+			{
+				Console.WriteLine(c);
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SortArray
+namespace SortingSearchingAlgorithms
 {
 	internal class DoubleComparer : IEqualityComparer<double>
 	{

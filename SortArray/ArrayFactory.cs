@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace SortArray
+namespace SortingSearchingAlgorithms
 {
 	public class ArrayFactory
 	{

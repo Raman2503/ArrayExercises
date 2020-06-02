@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SortArray
+namespace SortingSearchingAlgorithms
 {
 	internal static class LinqExtensions
 	{
