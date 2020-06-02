@@ -53,16 +53,19 @@ namespace Playground
 			{
 			
 				IEnumerable<int> enumerable = GetSomeNumbers();
-				var enumerator1 = enumerable.GetEnumerator();
-				var enumerator2 = enumerable.GetEnumerator();
+				if (enumerable != null)
+				{
+					var enumerator1 = enumerable.GetEnumerator();
+					var enumerator2 = enumerable.GetEnumerator();
 
-				enumerator1.MoveNext();
+					enumerator1.MoveNext();
 
-				enumerator2.MoveNext();
-				enumerator2.MoveNext();
+					enumerator2.MoveNext();
+					enumerator2.MoveNext();
 
-				Console.WriteLine(enumerator1.Current);
-				Console.WriteLine(enumerator2.Current);
+					Console.WriteLine(enumerator1.Current);
+					Console.WriteLine(enumerator2.Current);
+				}
 			}
 
 			return;

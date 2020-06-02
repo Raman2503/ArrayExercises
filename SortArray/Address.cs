@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+// ReSharper disable All
 
 namespace SortingSearchingAlgorithms
 {
+	[SuppressMessage("ReSharper", "StringCompareToIsCultureSpecific")]
 	internal class Address : IComparable<Address>, IEquatable<Address>
 	{
-		public string Street { get; set; }
+		public string Street { get; }
 
-		public int Number { get; set; }
+		public int Number { get; }
 
 		public Address()
 		{
@@ -58,7 +61,7 @@ namespace SortingSearchingAlgorithms
 	{
 		public int Compare(Address a1, Address a2)
 		{
-			if (a2.Street != null && a1.Street != null)
+			if (a1 != null && (a2 != null && (a2.Street != null && a1.Street != null)))
 				if (a1.Street.CompareTo(a2.Street) > 0)
 				{
 					return 1;

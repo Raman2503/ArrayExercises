@@ -151,7 +151,6 @@ namespace SortingSearchingAlgorithms
 			var addr = typeof(Address);
 			PrintAllConstructors(addr);
 			Console.WriteLine();
-
 		}
 
 		private static void PrintAllConstructors(Type t)
