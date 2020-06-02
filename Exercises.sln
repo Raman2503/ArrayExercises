@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FillTrianglesWithZeros", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nested Loops", "Nested Loops", "{23D358A0-7242-4D33-854B-4450CBD17DD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortArray", "SortArray\SortArray.csproj", "{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingSearchingAlgorithms", "SortArray\SortingSearchingAlgorithms.csproj", "{2048BFDF-FD8C-43A0-B4E2-A8FEA949A2DE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BubbleSort and BinarySearch", "BubbleSort and BinarySearch", "{3F01C255-9EBC-4719-9135-32F51959AE10}"
 EndProject

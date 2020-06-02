@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SortArray;
 
-namespace SortArray
+namespace SortingSearchingAlgorithms
 {
 	class Program
 	{
@@ -52,11 +52,11 @@ namespace SortArray
 			Console.WriteLine($"Number {randomNumber} in array of integers is at index {intIdx}");
 			Console.WriteLine($"Number {randomNumber} in array of doubles is at index {doubleIdx}");
 			Console.WriteLine($"String {randomString} in array of Strings is at index {stringIdx}");
-			Console.WriteLine("-------------------------------------------------");
-
+			Console.WriteLine("------------------------------------------------------------");
+			Console.WriteLine();
 
 			// Create list of addresses and print them on console.
-			List<Address> adresses = new List<Address>()
+			List<Address> addresses = new List<Address>()
 			{
 				new Address("Abbey Road", 10),
 				new Address("Liverpool Street", 12),
@@ -71,7 +71,7 @@ namespace SortArray
 
 			Console.WriteLine("List of Addresses:");
 
-			foreach (var address in adresses)
+			foreach (var address in addresses)
 			{
 				Console.WriteLine("{0}, {1}", address.Street, address.Number);
 			}
@@ -79,11 +79,13 @@ namespace SortArray
 			Console.WriteLine();
 			var byStreetComparer = new CompareByStreetComparer();
 
-			//var addressesByStreet = ArrayExtensions.Sort(adresses.ToArray(), byStreetComparer);
-			adresses.Sort();
+			// Use own Sort method with IComparer.
+			var addressesByStreet = ArrayExtensions.Sort(addresses.ToArray(), byStreetComparer);
+
+			//addresses.Sort();
 			
 			Console.WriteLine("Addresses Sorted by Street:");
-			foreach (var address in adresses)
+			foreach (var address in addressesByStreet)
 			{
 				Console.WriteLine("{0}, {1}", address.Street, address.Number);
 			}
@@ -91,7 +93,7 @@ namespace SortArray
 			Console.WriteLine();
 
 			Console.WriteLine("Addresses in Hash Set:");
-			HashSet<Address> addressesSet = new HashSet<Address>(adresses);
+			HashSet<Address> addressesSet = new HashSet<Address>(addresses);
 			foreach (var address in addressesSet)
 			{
 				Console.WriteLine("{0}, {1}", address.Street, address.Number);
@@ -99,11 +101,10 @@ namespace SortArray
 
 			var addressToFind = new Address("Wieland Road", 42);
 
-			var addressByStreetIdx = adresses.ToArray().FindIndex(addressToFind, byStreetComparer);
+			// Use own Find method with IComparer.
+			var addressByStreetIdx = addresses.ToArray().FindIndex(addressToFind, byStreetComparer);
 			Console.WriteLine();
-
 			Console.WriteLine($"Address to be found by street is at index {addressByStreetIdx}");
-			Console.WriteLine();
 
 			List<double> doubles = new List<double>()
 			{
@@ -116,31 +117,33 @@ namespace SortArray
 			var doubleComparer = new DoubleComparer(2);
 			var numberSet = new HashSet<double>(doubles, doubleComparer);
 
+			Console.WriteLine("------------------------------------------------------------");
+			Console.WriteLine();
+			Console.WriteLine("Doubles with unique Hash Code");
 			foreach (var number in numberSet)
 			{
 				Console.WriteLine(number);
 			}
-		}
+			Console.WriteLine("------------------------------------------------------------");
 
-		class DoubleComparer : IEqualityComparer<double>
-		{
-			int Precision { get; }
-			internal DoubleComparer(int precision)
+			var minAddress = addresses.ToArray().MinBy(addresses.ToArray().First());
+			Console.WriteLine("Min By address:");
+			Console.WriteLine("{0},{1}", minAddress.Street, minAddress.Number);
+
+			var maxAdress = addresses.ToArray().MaxBy(addresses.ToArray().First());
+			Console.WriteLine("Max By address:");
+			Console.WriteLine("{0},{1}", maxAdress.Street, maxAdress.Number);
+			Console.WriteLine("------------------------------------------------------------");
+
+			int N = 3;
+			var list = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+			var result = list.ToArray().TakeEvery(N);
+
+			Console.WriteLine($"Take every {N}rd element");
+			foreach (var number in result)
 			{
-				Precision = precision;
-			}
-
-			public bool Equals(double x, double y)
-			{
-				var roundedX = Math.Round(x, Precision);
-				var roundedY = Math.Round(y, Precision);
-
-				return roundedX == roundedY;
-			}
-
-			public int GetHashCode(double obj)
-			{
-				return Math.Round(obj, Precision).GetHashCode();
+				Console.WriteLine(number);
 			}
 		}
 	}

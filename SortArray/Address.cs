@@ -46,6 +46,7 @@ namespace SortArray
 				return ((Street != null ? Street.GetHashCode() : 0) * 397) ^ Number;
 			}
 		}
+		
 	}
 
 	internal class CompareByStreetComparer : IComparer<Address>
