@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SortingSearchingAlgorithms
 {
 	internal static class LinqExtensions
 	{
 
-		public static T MinBy<T>(this T[] array, T refItem) where T : IComparable<T>
+		public static T MinBy<T>(this IEnumerable<T> collection, T refItem) where T : IComparable<T>
 		{
-			foreach (var address in array)
+			foreach (var address in collection)
 			{
 				if (address.CompareTo(refItem) < 0)
 				{
@@ -17,9 +19,9 @@ namespace SortingSearchingAlgorithms
 			return refItem;
 		}
 
-		public static T MaxBy<T>(this T[] array, T refItem) where T : IComparable<T>
+		public static T MaxBy<T>(this IEnumerable<T> collection, T refItem) where T : IComparable<T>
 		{
-			foreach (var address in array)
+			foreach (var address in collection)
 			{
 				if (address.CompareTo(refItem) > 0)
 				{
@@ -29,27 +31,26 @@ namespace SortingSearchingAlgorithms
 			return refItem;
 		}
 
-		public static T[] TakeEvery<T>(this T[] array, int N)
+		public static IEnumerable<T> TakeEvery<T>(this IEnumerable<T> collection, int N)
 		{
 			if (N != 0)
 			{
-				var dim = array.Length / N;
-				var result = new T[dim];
-				int i = 0;
-
-				for (int index = N - 1; index < array.Length; index += N)
+				var counter = 1;
+				foreach (var c in collection)
 				{
-					result[i] = array[index];
-					i++;
-				}
 
-				return result;
+					if (counter % N == 0)
+					{
+						yield return c;
+					}
+
+					counter ++;
+				}
 			}
 			
 			else
 			{
 				Console.WriteLine("Oooops, N was zero.");
-				return new T[]{};
 			}
 		}
 	}

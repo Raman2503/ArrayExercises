@@ -125,11 +125,11 @@ namespace SortingSearchingAlgorithms
 			}
 			Console.WriteLine("------------------------------------------------------------");
 
-			var minAddress = addresses.ToArray().MinBy(addresses.ToArray().First());
+			var minAddress = addresses.MinBy(addresses.First());
 			Console.WriteLine("Min By address:");
 			Console.WriteLine("{0},{1}", minAddress.Street, minAddress.Number);
 
-			var maxAddress = addresses.ToArray().MaxBy(addresses.ToArray().First());
+			var maxAddress = addresses.MaxBy(addresses.First());
 			Console.WriteLine("Max By address:");
 			Console.WriteLine("{0},{1}", maxAddress.Street, maxAddress.Number);
 			Console.WriteLine("------------------------------------------------------------");
@@ -137,12 +137,21 @@ namespace SortingSearchingAlgorithms
 			int N = 3;
 			var list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-			var result = list.ToArray().TakeEvery(N);
+			var everyNthNumber = list.TakeEvery(N);
 
-			Console.WriteLine($"Take every {N}rd element");
-			foreach (var number in result)
+			var everyNthAddress = addresses.TakeEvery(N);
+
+
+			Console.WriteLine($"Take every {N}rd number");
+			foreach (var number in everyNthNumber)
 			{
 				Console.WriteLine(number);
+			}
+
+			Console.WriteLine($"Take every {N}rd address");
+			foreach (var a in everyNthAddress)
+			{
+				Console.WriteLine(a.ToString());
 			}
 
 			Console.WriteLine("------------------------------------------------------------");
@@ -160,7 +169,15 @@ namespace SortingSearchingAlgorithms
 			foreach (var c in constructors)
 			{
 				Console.WriteLine(c);
+
+				foreach (var p in c.GetParameters())
+				{
+					Console.WriteLine(p);
+				}
+
+				Console.WriteLine();
 			}
+
 		}
 	}
 }

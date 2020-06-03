@@ -12,7 +12,7 @@ namespace SortingSearchingAlgorithms
 
 		public int Number { get; }
 
-		public Address()
+		public Address(int a)
 		{
 				// Used for reflection
 		}
@@ -21,6 +21,11 @@ namespace SortingSearchingAlgorithms
 		{
 			Street = street;
 			Number = number;
+		}
+
+		public override string ToString()
+		{
+			return $"{Street}, {Number}";
 		}
 
 		public int CompareTo(Address other)
