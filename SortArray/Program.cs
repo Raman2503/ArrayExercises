@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MoreLinq;
 
 namespace SortingSearchingAlgorithms
 {
@@ -160,6 +161,34 @@ namespace SortingSearchingAlgorithms
 			var addr = typeof(Address);
 			PrintAllConstructors(addr);
 			Console.WriteLine();
+
+			Console.WriteLine("------------------------------------------------------------");
+			var sequence = new int[] {1, 2, 3, 4, 5, 6};
+			
+			Console.WriteLine("Random sequence of items");
+			foreach (var item in sequence)
+			{
+				Console.Write(item);
+			}
+
+			// Use built in linq extension SkipUntil
+			var newSequence = sequence.SkipUntil(x => x >= 3);
+
+			Console.WriteLine();
+			Console.WriteLine("Applied built-in SkipUntil");
+			foreach (var item in newSequence)
+			{
+				Console.Write(item);
+			}
+
+			// Use own implementation of SkipUntil
+			var sequenceWithSkipped = sequence.MySkipUntil(x => x >= 3);
+			Console.WriteLine();
+			Console.WriteLine("Applied own SkipUntil");
+			foreach (var item in sequenceWithSkipped)
+			{
+				Console.Write(item);
+			}
 		}
 
 		private static void PrintAllConstructors(Type t)

@@ -53,5 +53,20 @@ namespace SortingSearchingAlgorithms
 				Console.WriteLine("Oooops, N was zero.");
 			}
 		}
+
+		public static IEnumerable<T> MySkipUntil<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
+		{
+			var counter = 0;
+
+			foreach (var item in collection)
+			{    
+				if(predicate(item))
+					counter++;
+				if(counter > 1)
+					yield return item;
+
+			}
+		}
+
 	}
 }

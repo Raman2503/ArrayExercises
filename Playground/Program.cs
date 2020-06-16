@@ -231,8 +231,6 @@ namespace Playground
 			// override some registrations for testing
 
 			var c6 = container.Resolve<C>();
-
-
 		}
 	}
 }
