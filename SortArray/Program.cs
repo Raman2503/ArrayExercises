@@ -172,7 +172,7 @@ namespace SortingSearchingAlgorithms
 			}
 
 			// Use built in linq extension SkipUntil
-			var newSequence = sequence.SkipUntil(x => x >= 3);
+			var newSequence = sequence.SkipUntil(x => x >= 0);
 
 			Console.WriteLine();
 			Console.WriteLine("Applied built-in SkipUntil");
@@ -182,7 +182,7 @@ namespace SortingSearchingAlgorithms
 			}
 
 			// Use own implementation of SkipUntil
-			var sequenceWithSkipped = sequence.MySkipUntil(x => x >= 3);
+			var sequenceWithSkipped = sequence.MySkipUntil(x => x >= 0);
 			Console.WriteLine();
 			Console.WriteLine("Applied own SkipUntil");
 			foreach (var item in sequenceWithSkipped)
