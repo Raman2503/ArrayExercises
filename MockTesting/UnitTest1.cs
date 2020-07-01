@@ -13,6 +13,7 @@ namespace MockTesting
 		{
 			// 10, 20
 			var wind = new Wind();
+			var disa = 0.0;
 			var temp = 0.0;
 			var trop = 36000.0;
 			var alt1 = 300;
@@ -57,6 +58,10 @@ namespace MockTesting
 
 			var actual1 = calc.Calculate(200.0, alt1);
 			var actual2 = calc.Calculate(200.0, alt2);
+
+			// Verify how many times method was called
+			mock.Verify(func => func.GetValues(It.IsAny<double>(), It.IsAny<double>(), 
+				out wind, out disa), Times.AtLeast(1));
 
 			// actual is 17
 			Assert.AreEqual(12, actual1);
